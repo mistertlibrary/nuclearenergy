@@ -1,0 +1,1404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuclear Power Debate Preparation Tool - Enhanced</title>
+</head>
+<body>
+    <nuclear-debate-prep></nuclear-debate-prep>
+
+    <script>
+    (function() {
+        if (customElements.get('nuclear-debate-prep')) return;
+
+        // --- IMPROVED SVG ICONS ---
+        const icons = {
+            Scale: `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="M7 21h10"/><path d="M12 3v18"/><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/></svg>`,
+            Printer: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>`,
+            BookOpen: `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>`,
+            ChevronUp: `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>`,
+            ChevronDown: `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>`,
+            ExternalLink: `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>`,
+            Lightbulb: `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-1 1.5-2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg>`,
+            Trash2: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/></svg>`,
+            Plus: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/></svg>`,
+            FileText: `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>`,
+            Award: `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>`,
+            AlertTriangle: `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>`,
+            Clock: `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>`
+        };
+
+        // --- ENHANCED WCAG-COMPLIANT STYLES ---
+        const css = `
+            :host { 
+                display: block; 
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+                line-height: 1.6;
+            }
+            * { box-sizing: border-box; margin: 0; padding: 0; }
+            
+            /* Layout */
+            .container { 
+                min-height: 100vh; 
+                background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%); 
+                padding: 2rem; 
+            }
+            .max-w-6xl { max-width: 1200px; margin: 0 auto; }
+            
+            /* Header Panel - IMPROVED CONTRAST */
+            .header-panel { 
+                background: linear-gradient(to right, #1e3a8a, #1e40af);
+                border: 4px solid #3b82f6; 
+                border-radius: 1rem; 
+                padding: 2.5rem; 
+                margin-bottom: 2rem;
+                box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            }
+            
+            .logo-container {
+                display: flex;
+                align-items: center;
+                gap: 1.5rem;
+                margin-bottom: 1.5rem;
+            }
+            
+            .logo-circle {
+                width: 80px;
+                height: 80px;
+                border-radius: 50%;
+                background: linear-gradient(135deg, #fbbf24, #f59e0b);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                position: relative;
+                flex-shrink: 0;
+                box-shadow: 0 0 30px rgba(251, 191, 36, 0.5);
+            }
+            
+            .pulse-ring {
+                position: absolute;
+                top: -4px;
+                right: -4px;
+                width: 20px;
+                height: 20px;
+                background: #22c55e;
+                border-radius: 50%;
+                animation: pulse 2s ease-in-out infinite;
+            }
+            
+            @keyframes pulse {
+                0%, 100% { transform: scale(1); opacity: 1; }
+                50% { transform: scale(1.3); opacity: 0.6; }
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+                font-weight: 800;
+                color: #fbbf24;
+                text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+                letter-spacing: 0.05em;
+                margin: 0;
+            }
+            
+            .subtitle {
+                font-size: 1.1rem;
+                color: #86efac;
+                font-weight: 600;
+                font-family: 'Courier New', monospace;
+                margin-top: 0.5rem;
+            }
+            
+            .intro-text {
+                font-size: 1.15rem;
+                color: #ffffff;
+                line-height: 1.7;
+                border-left: 4px solid #fbbf24;
+                padding-left: 1.5rem;
+                margin: 1.5rem 0;
+            }
+            
+            /* Controls Panel */
+            .controls-panel {
+                background: #1e293b;
+                border: 3px solid #475569;
+                border-radius: 0.75rem;
+                padding: 2rem;
+                margin-bottom: 2rem;
+            }
+            
+            .grid-2 {
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            @media (min-width: 768px) {
+                .grid-2 { grid-template-columns: repeat(2, 1fr); }
+            }
+            
+            /* Form Elements - HIGHLY ACCESSIBLE */
+            label {
+                display: block;
+                font-size: 1rem;
+                font-weight: 700;
+                color: #fbbf24;
+                letter-spacing: 0.05em;
+                margin-bottom: 0.75rem;
+                text-transform: uppercase;
+            }
+            
+            input, select, textarea {
+                width: 100%;
+                padding: 1rem 1.25rem;
+                font-size: 1.1rem;
+                font-family: 'Consolas', 'Courier New', monospace;
+                background: #0f172a;
+                color: #86efac;
+                border: 2px solid #475569;
+                border-radius: 0.5rem;
+                transition: all 0.2s ease;
+            }
+            
+            input:focus, select:focus, textarea:focus {
+                outline: none;
+                border-color: #fbbf24;
+                box-shadow: 0 0 0 3px rgba(251, 191, 36, 0.3);
+                background: #1e293b;
+            }
+            
+            input::placeholder, textarea::placeholder {
+                color: #94a3b8;
+                opacity: 1;
+            }
+            
+            textarea {
+                min-height: 140px;
+                resize: vertical;
+                line-height: 1.6;
+            }
+            
+            /* Buttons */
+            button {
+                font-family: inherit;
+                cursor: pointer;
+                border: none;
+                background: none;
+                font-size: 1rem;
+                transition: all 0.2s ease;
+            }
+            
+            .btn-primary {
+                display: inline-flex;
+                align-items: center;
+                gap: 0.75rem;
+                padding: 0.875rem 1.75rem;
+                font-size: 1.1rem;
+                font-weight: 700;
+                color: #ffffff;
+                background: linear-gradient(135deg, #16a34a, #22c55e);
+                border: 2px solid #4ade80;
+                border-radius: 0.5rem;
+                box-shadow: 0 4px 12px rgba(34, 197, 94, 0.3);
+            }
+            
+            .btn-primary:hover {
+                background: linear-gradient(135deg, #15803d, #16a34a);
+                transform: translateY(-2px);
+                box-shadow: 0 6px 16px rgba(34, 197, 94, 0.4);
+            }
+            
+            .btn-add {
+                display: inline-flex;
+                align-items: center;
+                gap: 0.5rem;
+                padding: 0.75rem 1.5rem;
+                font-weight: 700;
+                color: #ffffff;
+                background: #3b82f6;
+                border: 2px solid #60a5fa;
+                border-radius: 0.5rem;
+                margin-top: 1rem;
+            }
+            
+            .btn-add:hover {
+                background: #2563eb;
+                transform: translateY(-1px);
+            }
+            
+            .btn-delete {
+                color: #f87171;
+                padding: 0.5rem;
+                font-weight: 600;
+            }
+            
+            .btn-delete:hover {
+                color: #fca5a5;
+            }
+            
+            /* Section Panels */
+            .section-panel {
+                background: #1e293b;
+                border: 3px solid #475569;
+                border-radius: 0.75rem;
+                margin-bottom: 2rem;
+                overflow: hidden;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            }
+            
+            .section-header {
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 1.75rem 2rem;
+                background: linear-gradient(to right, #1e293b, #334155);
+                border-bottom: 2px solid #475569;
+                text-align: left;
+            }
+            
+            .section-header:hover {
+                background: linear-gradient(to right, #334155, #475569);
+            }
+            
+            .section-title {
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.5rem;
+                font-weight: 700;
+                color: #fbbf24;
+                letter-spacing: 0.05em;
+                margin: 0;
+            }
+            
+            .section-content {
+                padding: 2rem;
+            }
+            
+            /* Info Boxes - IMPROVED CONTRAST */
+            .info-box {
+                padding: 1.25rem 1.5rem;
+                border-left: 4px solid;
+                border-radius: 0.5rem;
+                margin-bottom: 1.5rem;
+                font-size: 1.05rem;
+                line-height: 1.6;
+            }
+            
+            .info-box-blue {
+                background: #dbeafe;
+                border-color: #3b82f6;
+                color: #1e3a8a;
+            }
+            
+            .info-box-purple {
+                background: #f3e8ff;
+                border-color: #a855f7;
+                color: #6b21a8;
+            }
+            
+            .info-box-green {
+                background: #dcfce7;
+                border-color: #22c55e;
+                color: #14532d;
+            }
+            
+            .info-box-yellow {
+                background: #fef3c7;
+                border-color: #f59e0b;
+                color: #78350f;
+            }
+            
+            .info-box strong {
+                font-weight: 700;
+            }
+            
+            /* Cards */
+            .card {
+                background: #0f172a;
+                border: 2px solid #475569;
+                border-left: 4px solid;
+                border-radius: 0.5rem;
+                padding: 1.5rem;
+                margin-bottom: 1.5rem;
+            }
+            
+            .card-blue { border-left-color: #60a5fa; }
+            .card-green { border-left-color: #4ade80; }
+            .card-purple { border-left-color: #c084fc; }
+            .card-orange { border-left-color: #fb923c; }
+            .card-teal { border-left-color: #2dd4bf; }
+            
+            .card-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 1rem;
+            }
+            
+            .card-title {
+                font-size: 1.1rem;
+                font-weight: 700;
+                color: #ffffff;
+            }
+            
+            .card-blue .card-title { color: #93c5fd; }
+            .card-green .card-title { color: #86efac; }
+            .card-purple .card-title { color: #d8b4fe; }
+            .card-orange .card-title { color: #fdba74; }
+            .card-teal .card-title { color: #5eead4; }
+            
+            /* Resource Lists */
+            .resource-grid {
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+                margin-top: 1.5rem;
+            }
+            
+            @media (min-width: 768px) {
+                .resource-grid { grid-template-columns: repeat(2, 1fr); }
+            }
+            
+            .resource-card {
+                background: #f8fafc;
+                border: 2px solid #cbd5e1;
+                border-radius: 0.5rem;
+                padding: 1.5rem;
+            }
+            
+            .resource-card h4 {
+                font-size: 1.1rem;
+                font-weight: 700;
+                color: #1e40af;
+                margin-bottom: 1rem;
+            }
+            
+            .resource-list {
+                list-style: none;
+            }
+            
+            .resource-item {
+                display: flex;
+                align-items: flex-start;
+                gap: 0.5rem;
+                margin-bottom: 0.75rem;
+                color: #1e293b;
+            }
+            
+            .resource-bullet {
+                color: #3b82f6;
+                font-weight: 700;
+                flex-shrink: 0;
+            }
+            
+            .resource-link {
+                color: #1e40af;
+                text-decoration: underline;
+                font-weight: 600;
+                display: inline-flex;
+                align-items: center;
+                gap: 0.25rem;
+            }
+            
+            .resource-link:hover {
+                color: #2563eb;
+            }
+            
+            /* Timer */
+            .timer-container {
+                background: #0f172a;
+                border: 3px solid #475569;
+                border-radius: 0.75rem;
+                padding: 2rem;
+                margin-bottom: 2rem;
+            }
+            
+            .timer-buttons {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+                gap: 0.75rem;
+                margin-bottom: 2rem;
+            }
+            
+            .timer-btn {
+                padding: 0.875rem;
+                background: #334155;
+                color: #e2e8f0;
+                border: 2px solid #475569;
+                border-radius: 0.5rem;
+                font-weight: 600;
+                text-align: center;
+            }
+            
+            .timer-btn:hover {
+                background: #475569;
+                border-color: #64748b;
+            }
+            
+            .timer-display {
+                text-align: center;
+                padding: 2rem;
+                background: #1e293b;
+                border: 2px solid #475569;
+                border-radius: 0.5rem;
+                margin-bottom: 1.5rem;
+            }
+            
+            .timer-value {
+                font-size: 5rem;
+                font-weight: 800;
+                font-family: 'Courier New', monospace;
+                color: #4ade80;
+                line-height: 1;
+                margin-bottom: 1rem;
+            }
+            
+            .timer-value.warning {
+                color: #f87171;
+                animation: pulse 1s ease-in-out infinite;
+            }
+            
+            .timer-label {
+                font-size: 1rem;
+                color: #94a3b8;
+                text-transform: uppercase;
+                letter-spacing: 0.1em;
+            }
+            
+            .timer-controls {
+                display: flex;
+                gap: 1rem;
+                justify-content: center;
+            }
+            
+            .timer-control-btn {
+                padding: 1rem 2rem;
+                font-size: 1.1rem;
+                font-weight: 700;
+                color: white;
+                border: 3px solid;
+                border-radius: 0.5rem;
+                text-transform: uppercase;
+                letter-spacing: 0.05em;
+            }
+            
+            .btn-start {
+                background: #16a34a;
+                border-color: #22c55e;
+            }
+            
+            .btn-start:hover {
+                background: #15803d;
+            }
+            
+            .btn-pause {
+                background: #dc2626;
+                border-color: #f87171;
+            }
+            
+            .btn-pause:hover {
+                background: #b91c1c;
+            }
+            
+            .btn-reset {
+                background: #ca8a04;
+                border-color: #facc15;
+            }
+            
+            .btn-reset:hover {
+                background: #a16207;
+            }
+            
+            /* Utility Text Colors - ALL WCAG AA COMPLIANT */
+            .text-white { color: #ffffff; }
+            .text-yellow { color: #fbbf24; }
+            .text-green { color: #86efac; }
+            .text-blue { color: #93c5fd; }
+            .text-purple { color: #d8b4fe; }
+            .text-orange { color: #fdba74; }
+            .text-teal { color: #5eead4; }
+            .text-red { color: #fca5a5; }
+            .text-gray-light { color: #e2e8f0; }
+            .text-gray { color: #cbd5e1; }
+            
+            /* Utility Spacing */
+            .mb-1 { margin-bottom: 0.5rem; }
+            .mb-2 { margin-bottom: 1rem; }
+            .mb-3 { margin-bottom: 1.5rem; }
+            .mb-4 { margin-bottom: 2rem; }
+            .mt-2 { margin-top: 1rem; }
+            .mt-4 { margin-top: 2rem; }
+            
+            /* Print Styles */
+            @media print {
+                .container { background: white; padding: 1rem; }
+                .header-panel, .controls-panel, .section-panel { 
+                    border: 2px solid #000; 
+                    background: white; 
+                    page-break-inside: avoid;
+                }
+                h1, h2, h3, label, .card-title { color: #000 !important; }
+                .text-white, .text-yellow, .text-green, .text-blue { color: #000 !important; }
+                input, textarea, select { 
+                    border: 1px solid #000; 
+                    background: white; 
+                    color: #000; 
+                }
+                .btn-primary, .timer-controls { display: none; }
+                .logo-circle { border: 2px solid #000; background: #f0f0f0; }
+            }
+        `;
+
+        class NuclearDebatePrep extends HTMLElement {
+            constructor() {
+                super();
+                this.attachShadow({ mode: 'open' });
+                
+                // Initialize state
+                this.state = {
+                    position: 'pro',
+                    selectedPlant: '',
+                    expandedSections: {
+                        research: true,
+                        searchStrategy: false,
+                        arguments: true,
+                        evidence: true,
+                        rubric: false,
+                        factCheck: false,
+                        fallacies: false,
+                        prep: false
+                    },
+                    researchNotes: {
+                        intro: '', plant: '', operations: '', 
+                        environmental: '', economic: '', future: ''
+                    },
+                    arguments: [],
+                    counterArgs: [],
+                    evidence: [],
+                    questions: [],
+                    openingStatement: '',
+                    closingStatement: '',
+                    timerActive: false,
+                    timerSeconds: 120,
+                    timerMode: 'opening'
+                };
+
+                this.timerInterval = null;
+                this.plants = {
+                    nj: [{ name: 'Salem + Hope Creek', operator: 'PSEG Nuclear', state: 'New Jersey' }],
+                    ny: [
+                        { name: 'James A. FitzPatrick', operator: 'Constellation Energy', state: 'New York' },
+                        { name: 'Ginna', operator: 'Constellation Energy', state: 'New York' },
+                        { name: 'Nine Mile Station 1', operator: 'Constellation Energy', state: 'New York' },
+                        { name: 'Nine Mile Station', operator: 'Constellation Energy', state: 'New York' }
+                    ]
+                };
+                
+                this.researchResources = [
+                    { 
+                        category: 'Nuclear Power Plant Information', 
+                        items: [
+                            { name: 'U.S. Nuclear Regulatory Commission', url: 'https://www.nrc.gov' },
+                            { name: 'NRC Plant Information Database', url: 'https://www.nrc.gov/reactors/operating/list-power-reactor-units.html' },
+                            { name: 'Department of Energy', url: 'https://www.energy.gov' },
+                            { name: 'NYSERDA', url: 'https://www.nyserda.ny.gov' },
+                            { name: 'NJ Board of Public Utilities', url: 'https://www.nj.gov/bpu/' }
+                        ]
+                    },
+                    { 
+                        category: 'Library Databases: Controversial Issues', 
+                        items: [
+                            { name: 'Gale in Context: Global Issues', url: 'https://link.gale.com/apps/GIC?u=nort87507' },
+                            { name: 'Gale in Context: Opposing Viewpoints', url: 'https://link.gale.com/apps/OVIC?u=nort87507' },
+                            { name: 'Infobase Issues & Controversies', url: 'https://online.infobaselearning.com/Direct.aspx?pid=WE57&aid=17282' },
+                            { name: 'EBSCOhost Points of View', url: 'https://research.ebsco.com/c/t3bsam?db=pwh' }
+                        ]
+                    },
+                    { 
+                        category: 'Library Databases: Scientific Information', 
+                        items: [
+                            { name: 'Grolier ScienceFlix', url: 'http://scienceflix.digital.scholastic.com/' },
+                            { name: 'Infobase Science Online', url: 'https://online.infobaselearning.com/Direct.aspx?pid=WE40&aid=17282' },
+                            { name: 'EBSCOhost Science Reference', url: 'https://research.ebsco.com/c/t3bsam?db=sch' }
+                        ]
+                    },
+                    { 
+                        category: 'General Information & News', 
+                        items: [
+                            { name: 'Britannica School', url: 'http://school.eb.com/' },
+                            { name: 'New York Times', url: 'https://www.nytimes.com' },
+                            { name: 'Google Scholar', url: 'https://scholar.google.com' }
+                        ]
+                    }
+                ];
+            }
+
+            connectedCallback() {
+                this.render();
+                this.setupTimer();
+            }
+
+            disconnectedCallback() {
+                if (this.timerInterval) {
+                    clearInterval(this.timerInterval);
+                }
+            }
+
+            setupTimer() {
+                // Use a single timer that only updates display, not full re-render
+                this.timerInterval = setInterval(() => {
+                    if (this.state.timerActive && this.state.timerSeconds > 0) {
+                        this.state.timerSeconds--;
+                        this.updateTimerDisplay();
+                        
+                        if (this.state.timerSeconds === 0) {
+                            this.state.timerActive = false;
+                            this.updateControlButtons();
+                        }
+                    }
+                }, 1000);
+            }
+
+            updateTimerDisplay() {
+                const display = this.shadowRoot.querySelector('.timer-value');
+                if (display) {
+                    const mins = Math.floor(this.state.timerSeconds / 60);
+                    const secs = (this.state.timerSeconds % 60).toString().padStart(2, '0');
+                    display.textContent = `${mins}:${secs}`;
+                    
+                    if (this.state.timerSeconds <= 30 && this.state.timerActive) {
+                        display.classList.add('warning');
+                    } else {
+                        display.classList.remove('warning');
+                    }
+                }
+            }
+
+            updateControlButtons() {
+                // Minimal update - just swap start/pause button
+                const controls = this.shadowRoot.querySelector('.timer-controls');
+                if (controls) {
+                    const buttons = this.state.timerActive ? 
+                        `<button class="timer-control-btn btn-pause" data-action="pause">Pause</button>` :
+                        `<button class="timer-control-btn btn-start" data-action="start">Start</button>`;
+                    controls.innerHTML = `${buttons}<button class="timer-control-btn btn-reset" data-action="reset">Reset</button>`;
+                    this.attachTimerControls();
+                }
+            }
+
+            getPlantInfo() {
+                const allPlants = [...this.plants.nj, ...this.plants.ny];
+                return allPlants.find(p => p.name === this.state.selectedPlant);
+            }
+
+            toggleSection(section) {
+                this.state.expandedSections[section] = !this.state.expandedSections[section];
+                this.render();
+            }
+
+            // Render methods for each section
+            renderHeader() {
+                return `
+                    <div class="header-panel">
+                        <div class="logo-container">
+                            <div class="logo-circle">
+                                ${icons.Scale}
+                                <div class="pulse-ring"></div>
+                            </div>
+                            <div>
+                                <h1>NUCLEAR DEBATE PREP SYSTEM</h1>
+                                <div class="subtitle">Research & Argumentation Module v3.0</div>
+                            </div>
+                        </div>
+                        <p class="intro-text">
+                            Organize research, build evidence-based arguments, and prepare for effective debate participation on nuclear power in NY/NJ.
+                        </p>
+                        <button class="btn-primary" data-action="print">
+                            ${icons.Printer} Print Your Work
+                        </button>
+                    </div>
+                `;
+            }
+
+            renderControls() {
+                const plantInfo = this.getPlantInfo();
+                return `
+                    <div class="controls-panel">
+                        <div class="grid-2 mb-3">
+                            <div>
+                                <label>Your Debate Position</label>
+                                <select data-bind="position">
+                                    <option value="pro" ${this.state.position === 'pro' ? 'selected' : ''}>PRO: Support Nuclear Energy</option>
+                                    <option value="con" ${this.state.position === 'con' ? 'selected' : ''}>CON: Oppose Nuclear Energy</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label>Select a Nuclear Plant</label>
+                                <select data-bind="selectedPlant">
+                                    <option value="">Choose a facility to research...</option>
+                                    <optgroup label="New Jersey">
+                                        ${this.plants.nj.map(p => `
+                                            <option value="${p.name}" ${this.state.selectedPlant === p.name ? 'selected' : ''}>
+                                                ${p.name} (${p.operator})
+                                            </option>
+                                        `).join('')}
+                                    </optgroup>
+                                    <optgroup label="New York">
+                                        ${this.plants.ny.map(p => `
+                                            <option value="${p.name}" ${this.state.selectedPlant === p.name ? 'selected' : ''}>
+                                                ${p.name} (${p.operator})
+                                            </option>
+                                        `).join('')}
+                                    </optgroup>
+                                </select>
+                            </div>
+                        </div>
+                        ${this.state.selectedPlant ? `
+                            <div class="info-box info-box-blue">
+                                <strong>Research Protocol for ${this.state.selectedPlant}:</strong> 
+                                Check the NRC's plant information database for technical specifications and inspection reports. 
+                                Look for ${plantInfo?.operator}'s public documents on safety and operations. 
+                                Search local news archives for community response and environmental impact discussions.
+                            </div>
+                        ` : ''}
+                    </div>
+                `;
+            }
+
+            renderResearchSection() {
+                if (!this.state.expandedSections.research) return '';
+                
+                const plantInfo = this.getPlantInfo();
+                const components = [
+                    { key: 'intro', label: 'Nuclear Power Basics', 
+                      prompt: 'What is nuclear energy? How does it generate electricity? What are the benefits and risks?' },
+                    { key: 'plant', 
+                      label: this.state.selectedPlant ? `Your Plant: ${this.state.selectedPlant}` : 'Your Plant: Location & History',
+                      prompt: this.state.selectedPlant ? 
+                        `When was ${this.state.selectedPlant} built? Where is it located? Who operates it (${plantInfo?.operator})? What are key historical events or milestones?` : 
+                        'Select a plant above to see customized research prompts' },
+                    { key: 'operations', label: 'Operations & Technology', 
+                      prompt: 'What type of reactor? How much electricity does it generate? What safety measures are in place?' },
+                    { key: 'environmental', label: 'Environmental & Health Impacts', 
+                      prompt: 'Impact on local environment and water supply? How is nuclear waste managed? Have there been safety incidents?' },
+                    { key: 'economic', label: 'Economic & Social Aspects', 
+                      prompt: 'Economic contribution and jobs? Community perception? What alternatives to nuclear energy exist in the region?' },
+                    { key: 'future', label: 'Future of Nuclear Energy', 
+                      prompt: 'Plans for new projects or shutdowns? State energy policy? Comparison to renewable energy sources?' }
+                ];
+
+                return `
+                    <div class="section-content">
+                        <div class="info-box info-box-blue">
+                            <strong>Research Strategy:</strong> Use multiple source types for comprehensive understanding. 
+                            Government sources provide factual data, industry sources offer operational insights, 
+                            academic sources give analytical perspectives, and news sources reveal public perception.
+                        </div>
+
+                        <h3 class="text-white mb-2" style="font-size: 1.3rem; font-weight: 700;">Recommended Resources</h3>
+                        <div class="resource-grid">
+                            ${this.researchResources.map(category => `
+                                <div class="resource-card">
+                                    <h4>${category.category}</h4>
+                                    <ul class="resource-list">
+                                        ${category.items.map(item => `
+                                            <li class="resource-item">
+                                                <span class="resource-bullet">•</span>
+                                                <a href="${item.url}" target="_blank" class="resource-link">
+                                                    ${item.name} ${icons.ExternalLink}
+                                                </a>
+                                            </li>
+                                        `).join('')}
+                                    </ul>
+                                </div>
+                            `).join('')}
+                        </div>
+
+                        ${components.map(comp => `
+                            <div class="mt-4">
+                                <label>${comp.label}</label>
+                                <p class="text-gray-light mb-2" style="font-style: italic; font-size: 1.05rem;">
+                                    ${comp.prompt}
+                                </p>
+                                <textarea 
+                                    data-bind="researchNotes.${comp.key}" 
+                                    placeholder="Type your research notes here..."
+                                >${this.state.researchNotes[comp.key]}</textarea>
+                            </div>
+                        `).join('')}
+                    </div>
+                `;
+            }
+
+            renderSearchStrategy() {
+                if (!this.state.expandedSections.searchStrategy) return '';
+                
+                return `
+                    <div class="section-content">
+                        <div class="info-box info-box-purple">
+                            <strong>Search Protocol:</strong> Effective database searching requires strategic use of keywords and Boolean operators. 
+                            Combine terms strategically to find relevant, credible sources.
+                        </div>
+
+                        <div class="grid-2">
+                            <div class="card card-green">
+                                <h4 class="card-title">Search Terms & Keywords</h4>
+                                <ul class="text-white" style="list-style: none;">
+                                    <li class="mb-2"><span class="text-yellow">▸</span> <strong>nuclear power</strong> OR <strong>nuclear energy</strong></li>
+                                    <li class="mb-2"><span class="text-yellow">▸</span> <strong>reactor safety</strong> OR <strong>nuclear accidents</strong></li>
+                                    <li class="mb-2"><span class="text-yellow">▸</span> <strong>radioactive waste</strong> OR <strong>waste management</strong></li>
+                                    <li class="mb-2"><span class="text-yellow">▸</span> <strong>environmental impact</strong> AND <strong>nuclear</strong></li>
+                                </ul>
+                            </div>
+
+                            <div class="card card-purple">
+                                <h4 class="card-title">Boolean Operators</h4>
+                                <ul class="text-white" style="list-style: none;">
+                                    <li class="mb-2"><span class="text-yellow">▸</span> <strong class="text-orange">AND</strong> narrows results: <em class="text-gray">nuclear AND safety</em></li>
+                                    <li class="mb-2"><span class="text-yellow">▸</span> <strong class="text-orange">OR</strong> expands results: <em class="text-gray">reactor OR plant</em></li>
+                                    <li class="mb-2"><span class="text-yellow">▸</span> <strong class="text-orange">"quotes"</strong> finds exact phrases</li>
+                                    <li class="mb-2"><span class="text-yellow">▸</span> <strong class="text-orange">NOT</strong> excludes terms: <em class="text-gray">nuclear NOT weapons</em></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+
+            renderArguments() {
+                if (!this.state.expandedSections.arguments) return '';
+                
+                return `
+                    <div class="section-content">
+                        <div class="info-box info-box-green">
+                            <strong>Argumentation Protocol:</strong> Clearly state your claim, support it with credible evidence, 
+                            and link back to your thesis. Each argument should be logical, well-researched, and persuasive.
+                        </div>
+
+                        <h3 class="text-yellow mb-3" style="font-size: 1.3rem; font-weight: 700;">Your Team's Main Arguments</h3>
+                        ${this.state.arguments.map((arg, index) => `
+                            <div class="card card-blue">
+                                <div class="card-header">
+                                    <span class="card-title">ARGUMENT ${index + 1}</span>
+                                    <button class="btn-delete" data-action="delete-arg" data-index="${index}">
+                                        ${icons.Trash2} Delete
+                                    </button>
+                                </div>
+                                <input 
+                                    type="text" 
+                                    value="${this.escapeHtml(arg.point)}" 
+                                    placeholder="Main point or claim..."
+                                    data-bind="arguments.${index}.point"
+                                />
+                                <textarea 
+                                    placeholder="Supporting evidence and reasoning..."
+                                    data-bind="arguments.${index}.support"
+                                >${this.escapeHtml(arg.support)}</textarea>
+                                <input 
+                                    type="text" 
+                                    value="${this.escapeHtml(arg.source)}" 
+                                    placeholder="Source citation..."
+                                    data-bind="arguments.${index}.source"
+                                />
+                            </div>
+                        `).join('')}
+                        <button class="btn-add" data-action="add-arg">
+                            ${icons.Plus} Add Argument
+                        </button>
+
+                        <h3 class="text-yellow mb-3 mt-4" style="font-size: 1.3rem; font-weight: 700;">Anticipated Counter-Arguments & Rebuttals</h3>
+                        <p class="text-gray-light mb-3" style="font-style: italic;">
+                            Prepare for opposing arguments and develop strong rebuttals to strengthen your position.
+                        </p>
+                        ${this.state.counterArgs.map((counter, index) => `
+                            <div class="card card-orange">
+                                <div class="card-header">
+                                    <span class="card-title">COUNTER-ARGUMENT ${index + 1}</span>
+                                    <button class="btn-delete" data-action="delete-counter" data-index="${index}">
+                                        ${icons.Trash2} Delete
+                                    </button>
+                                </div>
+                                <input 
+                                    type="text" 
+                                    value="${this.escapeHtml(counter.opposing)}" 
+                                    placeholder="Opposing team's argument..."
+                                    data-bind="counterArgs.${index}.opposing"
+                                />
+                                <textarea 
+                                    placeholder="Your rebuttal and counter-evidence..."
+                                    data-bind="counterArgs.${index}.rebuttal"
+                                >${this.escapeHtml(counter.rebuttal)}</textarea>
+                            </div>
+                        `).join('')}
+                        <button class="btn-add" data-action="add-counter">
+                            ${icons.Plus} Add Counter-Argument
+                        </button>
+                    </div>
+                `;
+            }
+
+            renderEvidence() {
+                if (!this.state.expandedSections.evidence) return '';
+                
+                return `
+                    <div class="section-content">
+                        <div class="info-box info-box-purple">
+                            <strong>Source Evaluation:</strong> Track credibility by considering author expertise, potential bias, 
+                            publication date, and peer review status. Strong evidence comes from authoritative, current, and reliable sources.
+                        </div>
+
+                        ${this.state.evidence.map((item, index) => `
+                            <div class="card card-purple">
+                                <div class="card-header">
+                                    <span class="card-title">EVIDENCE ${index + 1}</span>
+                                    <button class="btn-delete" data-action="delete-evidence" data-index="${index}">
+                                        ${icons.Trash2} Delete
+                                    </button>
+                                </div>
+                                <input 
+                                    type="text" 
+                                    value="${this.escapeHtml(item.claim)}" 
+                                    placeholder="Claim, fact, or statistic..."
+                                    data-bind="evidence.${index}.claim"
+                                />
+                                <input 
+                                    type="text" 
+                                    value="${this.escapeHtml(item.source)}" 
+                                    placeholder="Source name and author..."
+                                    data-bind="evidence.${index}.source"
+                                />
+                                <input 
+                                    type="text" 
+                                    value="${this.escapeHtml(item.citation)}" 
+                                    placeholder="Full citation (MLA or Chicago format)..."
+                                    data-bind="evidence.${index}.citation"
+                                />
+                                <textarea 
+                                    placeholder="Why is this source reliable? (Authority, currency, objectivity)"
+                                    data-bind="evidence.${index}.reliability"
+                                >${this.escapeHtml(item.reliability)}</textarea>
+                            </div>
+                        `).join('')}
+                        <button class="btn-add" data-action="add-evidence">
+                            ${icons.Plus} Add Evidence
+                        </button>
+                    </div>
+                `;
+            }
+
+            renderRubric() {
+                if (!this.state.expandedSections.rubric) return '';
+                
+                const criteria = [
+                    { title: 'Opening Statement (4 pts)', desc: 'Clear position statement, engaging introduction, effective preview of main arguments' },
+                    { title: 'Use of Evidence (4 pts)', desc: 'Variety of credible sources, accurate data and statistics, proper citations' },
+                    { title: 'Argumentation (4 pts)', desc: 'Logical flow, strong reasoning, avoids fallacies, clear connection to thesis' },
+                    { title: 'Cross-Examination (4 pts)', desc: 'Effective questions, clear answers, maintains composure under pressure' },
+                    { title: 'Presentation Skills (4 pts)', desc: 'Eye contact, voice projection, appropriate pacing, persuasive tone' },
+                    { title: 'Teamwork (4 pts)', desc: 'Smooth transitions, balanced participation among members, well-divided tasks' },
+                    { title: 'Closing Statement (4 pts)', desc: 'Strong summary of key points, compelling final appeal, memorable conclusion' }
+                ];
+
+                return `
+                    <div class="section-content">
+                        <div class="info-box info-box-yellow">
+                            <strong>Assessment Criteria:</strong> Total of 28 points. Focus on developing strength in all areas for maximum impact.
+                        </div>
+
+                        <div class="grid-2">
+                            ${criteria.map(item => `
+                                <div class="card card-green">
+                                    <h4 class="card-title">${item.title}</h4>
+                                    <p class="text-white">${item.desc}</p>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                `;
+            }
+
+            renderFactCheck() {
+                if (!this.state.expandedSections.factCheck) return '';
+                
+                return `
+                    <div class="section-content">
+                        <div class="info-box info-box-yellow">
+                            <strong>Critical Thinking:</strong> Always verify facts and examine claims carefully. 
+                            Question assumptions and look for potential biases or misleading information.
+                        </div>
+
+                        <div class="grid-2">
+                            <div class="card card-orange" style="grid-column: span 1;">
+                                <h4 class="card-title">Currency & Bias</h4>
+                                <ul class="text-white" style="list-style: none;">
+                                    <li class="mb-2">✓ Is the information up to date?</li>
+                                    <li class="mb-2">✓ Does the source have a financial or political stake?</li>
+                                    <li class="mb-2">✓ Are multiple perspectives represented?</li>
+                                </ul>
+                            </div>
+
+                            <div class="card card-orange">
+                                <h4 class="card-title">Context & Numbers</h4>
+                                <ul class="text-white" style="list-style: none;">
+                                    <li class="mb-2">✓ Are there caveats or limitations to the data?</li>
+                                    <li class="mb-2">✓ Could this statistic be misleading?</li>
+                                    <li class="mb-2">✓ What's the baseline for comparison?</li>
+                                </ul>
+                            </div>
+
+                            <div class="card card-orange">
+                                <h4 class="card-title">Causation</h4>
+                                <ul class="text-white" style="list-style: none;">
+                                    <li class="mb-2">✓ Is this correlation or causation?</li>
+                                    <li class="mb-2">✓ Are there other explanatory factors?</li>
+                                    <li class="mb-2">✓ What evidence supports the causal claim?</li>
+                                </ul>
+                            </div>
+
+                            <div class="card card-orange">
+                                <h4 class="card-title">Source Authority</h4>
+                                <ul class="text-white" style="list-style: none;">
+                                    <li class="mb-2">✓ Who is the author? What are their credentials?</li>
+                                    <li class="mb-2">✓ Is this peer-reviewed or fact-checked?</li>
+                                    <li class="mb-2">✓ Can you verify this claim elsewhere?</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+
+            renderFallacies() {
+                if (!this.state.expandedSections.fallacies) return '';
+                
+                const fallacies = [
+                    { name: 'Ad Hominem', desc: 'Attacking the person making the argument instead of addressing the argument itself' },
+                    { name: 'Straw Man', desc: 'Misrepresenting an opponent\'s argument to make it easier to attack' },
+                    { name: 'False Dichotomy', desc: 'Presenting only two options when more alternatives exist' },
+                    { name: 'Cherry-Picking', desc: 'Selecting only evidence that supports your position while ignoring contradicting evidence' },
+                    { name: 'Appeal to Emotion', desc: 'Using emotional manipulation instead of logical reasoning' },
+                    { name: 'Hasty Generalization', desc: 'Drawing broad conclusions from limited evidence' },
+                    { name: 'Slippery Slope', desc: 'Arguing that one action will inevitably lead to extreme consequences without evidence' },
+                    { name: 'Appeal to Authority', desc: 'Claiming something is true solely because an authority figure says so' }
+                ];
+
+                return `
+                    <div class="section-content">
+                        <div class="info-box info-box-yellow">
+                            <strong>Logical Fallacies:</strong> Recognize these common errors in reasoning. 
+                            Avoid using them in your arguments and point them out when opponents use them.
+                        </div>
+
+                        <div class="grid-2">
+                            ${fallacies.map(fallacy => `
+                                <div class="card card-red" style="border-left-color: #f87171;">
+                                    <h4 class="card-title" style="color: #fca5a5;">${fallacy.name}</h4>
+                                    <p class="text-white">${fallacy.desc}</p>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                `;
+            }
+
+            renderPrep() {
+                if (!this.state.expandedSections.prep) return '';
+                
+                const timerModes = [
+                    { mode: 'opening', label: 'Opening', seconds: 120 },
+                    { mode: 'arguments', label: 'Arguments', seconds: 240 },
+                    { mode: 'rebuttal', label: 'Rebuttal', seconds: 120 },
+                    { mode: 'crossExam', label: 'Cross-Exam', seconds: 180 },
+                    { mode: 'closing', label: 'Closing', seconds: 120 }
+                ];
+
+                return `
+                    <div class="section-content">
+                        <div class="timer-container">
+                            <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+                                ${icons.Clock}
+                                <h3 class="text-green" style="font-size: 1.5rem; font-weight: 700; margin: 0;">Debate Timer</h3>
+                            </div>
+
+                            <div class="timer-buttons">
+                                ${timerModes.map(tm => `
+                                    <button class="timer-btn" data-timer="${tm.mode}" data-seconds="${tm.seconds}">
+                                        ${tm.label}<br>${Math.floor(tm.seconds/60)}:${(tm.seconds%60).toString().padStart(2,'0')}
+                                    </button>
+                                `).join('')}
+                            </div>
+
+                            <div class="timer-display">
+                                <div class="timer-value">${Math.floor(this.state.timerSeconds/60)}:${(this.state.timerSeconds%60).toString().padStart(2,'0')}</div>
+                                <div class="timer-label">${this.state.timerMode.replace(/([A-Z])/g, ' $1').toUpperCase()}</div>
+                            </div>
+
+                            <div class="timer-controls">
+                                ${this.state.timerActive ? 
+                                    `<button class="timer-control-btn btn-pause" data-action="pause">Pause</button>` :
+                                    `<button class="timer-control-btn btn-start" data-action="start">Start</button>`
+                                }
+                                <button class="timer-control-btn btn-reset" data-action="reset">Reset</button>
+                            </div>
+                        </div>
+
+                        <div class="mt-4">
+                            <label>Opening Statement (2 Minutes)</label>
+                            <p class="text-gray-light mb-2" style="font-style: italic;">
+                                Introduce your position clearly, preview your main arguments, and engage the audience
+                            </p>
+                            <textarea 
+                                data-bind="openingStatement" 
+                                placeholder="Draft your opening statement here..."
+                            >${this.escapeHtml(this.state.openingStatement)}</textarea>
+                        </div>
+
+                        <div class="mt-4">
+                            <h3 class="text-yellow mb-3" style="font-size: 1.3rem; font-weight: 700;">Cross-Examination Questions (3 Minutes)</h3>
+                            <p class="text-gray-light mb-3" style="font-style: italic;">
+                                Prepare insightful questions to challenge or clarify the opposing team's positions
+                            </p>
+                            ${this.state.questions.map((q, index) => `
+                                <div class="card card-teal">
+                                    <div class="card-header">
+                                        <span class="card-title">QUESTION ${index + 1}</span>
+                                        <button class="btn-delete" data-action="delete-question" data-index="${index}">
+                                            ${icons.Trash2} Delete
+                                        </button>
+                                    </div>
+                                    <input 
+                                        type="text" 
+                                        value="${this.escapeHtml(q.question)}" 
+                                        placeholder="Question to ask opposing team..."
+                                        data-bind="questions.${index}.question"
+                                    />
+                                    <input 
+                                        type="text" 
+                                        value="${this.escapeHtml(q.purpose)}" 
+                                        placeholder="Purpose or follow-up strategy..."
+                                        data-bind="questions.${index}.purpose"
+                                    />
+                                </div>
+                            `).join('')}
+                            <button class="btn-add" data-action="add-question">
+                                ${icons.Plus} Add Question
+                            </button>
+                        </div>
+
+                        <div class="mt-4">
+                            <label>Closing Statement (2 Minutes)</label>
+                            <p class="text-gray-light mb-2" style="font-style: italic;">
+                                Summarize key points and make a compelling final appeal
+                            </p>
+                            <textarea 
+                                data-bind="closingStatement" 
+                                placeholder="Draft your closing statement here..."
+                            >${this.escapeHtml(this.state.closingStatement)}</textarea>
+                        </div>
+
+                        <div class="mt-4" style="background: linear-gradient(to right, #1e3a8a, #1e40af); border: 3px solid #3b82f6; border-radius: 0.75rem; padding: 2rem;">
+                            <h3 class="text-yellow mb-3" style="font-size: 1.3rem; font-weight: 700;">Final Preparation Checklist</h3>
+                            <ul class="text-white" style="list-style: none; font-size: 1.05rem; line-height: 1.8;">
+                                <li style="display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 0.75rem;">
+                                    <span class="text-green" style="font-weight: 700;">✓</span>
+                                    <span>Review all evidence sources for credibility and relevance</span>
+                                </li>
+                                <li style="display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 0.75rem;">
+                                    <span class="text-green" style="font-weight: 700;">✓</span>
+                                    <span>Practice delivery with your team, focusing on clarity and confidence</span>
+                                </li>
+                                <li style="display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 0.75rem;">
+                                    <span class="text-green" style="font-weight: 700;">✓</span>
+                                    <span>Anticipate weak points in your arguments and prepare responses</span>
+                                </li>
+                                <li style="display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 0.75rem;">
+                                    <span class="text-green" style="font-weight: 700;">✓</span>
+                                    <span>Ensure balanced participation among all team members</span>
+                                </li>
+                                <li style="display: flex; align-items: flex-start; gap: 0.75rem;">
+                                    <span class="text-green" style="font-weight: 700;">✓</span>
+                                    <span>Have citations ready to reference during the debate</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                `;
+            }
+
+            escapeHtml(text) {
+                if (!text) return '';
+                const div = document.createElement('div');
+                div.textContent = text;
+                return div.innerHTML;
+            }
+
+            render() {
+                const sections = [
+                    { key: 'research', icon: icons.BookOpen, title: 'Research Components', renderer: () => this.renderResearchSection() },
+                    { key: 'searchStrategy', icon: icons.BookOpen, title: 'Search Strategy & Terminology', renderer: () => this.renderSearchStrategy() },
+                    { key: 'arguments', icon: icons.Lightbulb, title: 'Main Arguments & Rebuttals', renderer: () => this.renderArguments() },
+                    { key: 'evidence', icon: icons.FileText, title: 'Evidence & Source Tracker', renderer: () => this.renderEvidence() },
+                    { key: 'rubric', icon: icons.Award, title: 'Debate Rubric Reference', renderer: () => this.renderRubric() },
+                    { key: 'factCheck', icon: icons.AlertTriangle, title: 'Fact-Checking Protocol', renderer: () => this.renderFactCheck() },
+                    { key: 'fallacies', icon: icons.AlertTriangle, title: 'Logical Fallacy Detector', renderer: () => this.renderFallacies() },
+                    { key: 'prep', icon: icons.Clock, title: 'Debate Day Preparation', renderer: () => this.renderPrep() }
+                ];
+
+                this.shadowRoot.innerHTML = `
+                    <style>${css}</style>
+                    <div class="container">
+                        <div class="max-w-6xl">
+                            ${this.renderHeader()}
+                            ${this.renderControls()}
+                            
+                            ${sections.map(section => `
+                                <div class="section-panel">
+                                    <button class="section-header" data-toggle="${section.key}">
+                                        <div class="section-title">
+                                            <span class="text-yellow">${section.icon}</span>
+                                            <h2>${section.title}</h2>
+                                        </div>
+                                        <span class="text-green">
+                                            ${this.state.expandedSections[section.key] ? icons.ChevronUp : icons.ChevronDown}
+                                        </span>
+                                    </button>
+                                    ${section.renderer()}
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                `;
+
+                this.attachEventListeners();
+            }
+
+            attachEventListeners() {
+                const root = this.shadowRoot;
+
+                // Section toggles
+                root.querySelectorAll('[data-toggle]').forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        this.toggleSection(btn.dataset.toggle);
+                    });
+                });
+
+                // Input bindings - use input event to preserve cursor position
+                root.querySelectorAll('[data-bind]').forEach(input => {
+                    input.addEventListener('input', (e) => {
+                        const path = e.target.dataset.bind.split('.');
+                        if (path.length === 1) {
+                            this.state[path[0]] = e.target.value;
+                        } else if (path.length === 2) {
+                            this.state[path[0]][path[1]] = e.target.value;
+                        } else if (path.length === 3) {
+                            const [obj, index, key] = path;
+                            if (this.state[obj][parseInt(index)]) {
+                                this.state[obj][parseInt(index)][key] = e.target.value;
+                            }
+                        }
+                    });
+
+                    // Special handling for position and plant selection
+                    if (input.dataset.bind === 'position' || input.dataset.bind === 'selectedPlant') {
+                        input.addEventListener('change', () => {
+                            this.render();
+                        });
+                    }
+                });
+
+                // Action buttons
+                root.addEventListener('click', (e) => {
+                    const btn = e.target.closest('button[data-action]');
+                    if (!btn) return;
+
+                    const action = btn.dataset.action;
+                    const index = parseInt(btn.dataset.index);
+
+                    switch(action) {
+                        case 'print':
+                            window.print();
+                            break;
+                        case 'add-arg':
+                            this.state.arguments.push({ point: '', support: '', source: '' });
+                            this.render();
+                            break;
+                        case 'delete-arg':
+                            this.state.arguments.splice(index, 1);
+                            this.render();
+                            break;
+                        case 'add-counter':
+                            this.state.counterArgs.push({ opposing: '', rebuttal: '' });
+                            this.render();
+                            break;
+                        case 'delete-counter':
+                            this.state.counterArgs.splice(index, 1);
+                            this.render();
+                            break;
+                        case 'add-evidence':
+                            this.state.evidence.push({ claim: '', source: '', citation: '', reliability: '' });
+                            this.render();
+                            break;
+                        case 'delete-evidence':
+                            this.state.evidence.splice(index, 1);
+                            this.render();
+                            break;
+                        case 'add-question':
+                            this.state.questions.push({ question: '', purpose: '' });
+                            this.render();
+                            break;
+                        case 'delete-question':
+                            this.state.questions.splice(index, 1);
+                            this.render();
+                            break;
+                        case 'start':
+                            this.state.timerActive = true;
+                            this.updateControlButtons();
+                            break;
+                        case 'pause':
+                            this.state.timerActive = false;
+                            this.updateControlButtons();
+                            break;
+                        case 'reset':
+                            this.state.timerActive = false;
+                            const modes = {
+                                opening: 120,
+                                arguments: 240,
+                                rebuttal: 120,
+                                crossExam: 180,
+                                closing: 120
+                            };
+                            this.state.timerSeconds = modes[this.state.timerMode] || 120;
+                            this.updateTimerDisplay();
+                            this.updateControlButtons();
+                            break;
+                    }
+                });
+
+                // Timer mode buttons
+                this.attachTimerControls();
+            }
+
+            attachTimerControls() {
+                const root = this.shadowRoot;
+                root.querySelectorAll('[data-timer]').forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        this.state.timerMode = btn.dataset.timer;
+                        this.state.timerSeconds = parseInt(btn.dataset.seconds);
+                        this.state.timerActive = true;
+                        this.updateTimerDisplay();
+                        this.updateControlButtons();
+                    });
+                });
+            }
+        }
+
+        customElements.define('nuclear-debate-prep', NuclearDebatePrep);
+    })();
+    </script>
+</body>
+</html>
