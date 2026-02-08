@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nuclear Power Debate Preparation Tool - Final Edition</title>
+    <title>Nuclear Power Debate Preparation Tool</title>
 </head>
 <body>
     <nuclear-debate-prep></nuclear-debate-prep>
@@ -27,12 +27,12 @@
             Award: `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>`,
             AlertTriangle: `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>`,
             Clock: `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>`,
-            Download: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>`,
-            Upload: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>`,
-            Save: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>`
+            X: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>`,
+            CheckCircle: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>`,
+            Circle: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/></svg>`
         };
 
-        // --- ENHANCED WCAG-COMPLIANT STYLES (SOFTENED AESTHETIC) ---
+        // --- STYLES (unchanged from previous version) ---
         const css = `
             :host { 
                 display: block; 
@@ -41,7 +41,6 @@
             }
             * { box-sizing: border-box; margin: 0; padding: 0; }
             
-            /* Skip Link */
             .skip-link {
                 position: absolute;
                 top: -40px;
@@ -58,7 +57,6 @@
                 top: 0;
             }
             
-            /* Layout - More scholarly aesthetic */
             .container { 
                 min-height: 100vh; 
                 background: linear-gradient(135deg, #1e3a5f 0%, #2d5a7b 50%, #1e3a5f 100%); 
@@ -66,7 +64,6 @@
             }
             .max-w-6xl { max-width: 1200px; margin: 0 auto; }
             
-            /* Header Panel */
             .header-panel { 
                 background: linear-gradient(to right, #1e3a8a, #1e40af);
                 border: 4px solid #3b82f6; 
@@ -144,8 +141,96 @@
                 gap: 1rem;
                 margin-top: 1rem;
             }
+
+            .getting-started {
+                background: #dcfce7;
+                border: 3px solid #22c55e;
+                border-radius: 0.75rem;
+                padding: 1.5rem;
+                margin-bottom: 2rem;
+                position: relative;
+            }
+
+            .getting-started h3 {
+                color: #14532d;
+                font-size: 1.3rem;
+                margin-bottom: 1rem;
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+            }
+
+            .getting-started ol {
+                color: #14532d;
+                font-size: 1.05rem;
+                line-height: 1.8;
+                margin-left: 1.5rem;
+            }
+
+            .getting-started li {
+                margin-bottom: 0.5rem;
+            }
+
+            .getting-started p {
+                color: #166534;
+                font-size: 1rem;
+                margin-top: 1rem;
+                font-weight: 600;
+            }
+
+            .dismiss-guide {
+                position: absolute;
+                top: 1rem;
+                right: 1rem;
+                background: #22c55e;
+                color: white;
+                border: none;
+                padding: 0.5rem;
+                border-radius: 0.25rem;
+                cursor: pointer;
+                font-weight: 700;
+            }
+
+            .dismiss-guide:hover {
+                background: #16a34a;
+            }
+
+            .progress-tracker {
+                background: #1e293b;
+                border: 3px solid #475569;
+                border-radius: 0.75rem;
+                padding: 1.5rem;
+                margin-bottom: 2rem;
+            }
+
+            .progress-tracker h3 {
+                color: #e8a838;
+                font-size: 1.2rem;
+                margin-bottom: 1rem;
+            }
+
+            .progress-items {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 0.75rem;
+            }
+
+            .progress-item {
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+                color: #cbd5e1;
+                font-size: 0.95rem;
+            }
+
+            .progress-item.complete {
+                color: #86efac;
+            }
+
+            .progress-icon {
+                flex-shrink: 0;
+            }
             
-            /* Controls Panel */
             .controls-panel {
                 background: #1e293b;
                 border: 3px solid #475569;
@@ -164,7 +249,6 @@
                 .grid-2 { grid-template-columns: repeat(2, 1fr); }
             }
             
-            /* Form Elements */
             label {
                 display: block;
                 font-size: 1rem;
@@ -221,7 +305,6 @@
                 padding: 0.75rem;
             }
             
-            /* Buttons */
             button {
                 font-family: inherit;
                 cursor: pointer;
@@ -280,30 +363,6 @@
                 outline-offset: 2px;
             }
             
-            .btn-tertiary {
-                display: inline-flex;
-                align-items: center;
-                gap: 0.75rem;
-                padding: 0.875rem 1.75rem;
-                font-size: 1.1rem;
-                font-weight: 700;
-                color: #ffffff;
-                background: linear-gradient(135deg, #0891b2, #06b6d4);
-                border: 2px solid #22d3ee;
-                border-radius: 0.5rem;
-                box-shadow: 0 4px 12px rgba(34, 211, 238, 0.3);
-            }
-            
-            .btn-tertiary:hover {
-                background: linear-gradient(135deg, #0e7490, #0891b2);
-                transform: translateY(-2px);
-            }
-            
-            .btn-tertiary:focus {
-                outline: 3px solid #e8a838;
-                outline-offset: 2px;
-            }
-            
             .btn-add {
                 display: inline-flex;
                 align-items: center;
@@ -342,8 +401,25 @@
                 outline-offset: 2px;
                 border-radius: 4px;
             }
+
+            .btn-delete-example {
+                display: inline-flex;
+                align-items: center;
+                gap: 0.25rem;
+                padding: 0.25rem 0.5rem;
+                background: #dc2626;
+                color: white;
+                border: none;
+                border-radius: 0.25rem;
+                font-size: 0.75rem;
+                font-weight: 700;
+                margin-left: 0.5rem;
+            }
+
+            .btn-delete-example:hover {
+                background: #b91c1c;
+            }
             
-            /* Section Panels */
             .section-panel {
                 background: #1e293b;
                 border: 3px solid #475569;
@@ -391,7 +467,6 @@
                 padding: 2rem;
             }
             
-            /* Info Boxes */
             .info-box {
                 padding: 1.25rem 1.5rem;
                 border-left: 4px solid;
@@ -429,7 +504,6 @@
                 font-weight: 700;
             }
             
-            /* Cards */
             .card {
                 background: #0f172a;
                 border: 2px solid #475569;
@@ -465,8 +539,22 @@
             .card-orange .card-title { color: #fdba74; }
             .card-teal .card-title { color: #5eead4; }
             .card-red .card-title { color: #fca5a5; }
+
+            .example-badge {
+                display: inline-flex;
+                align-items: center;
+                gap: 0.25rem;
+                background: #fbbf24;
+                color: #78350f;
+                padding: 0.25rem 0.5rem;
+                border-radius: 9999px;
+                font-size: 0.75rem;
+                font-weight: 700;
+                text-transform: uppercase;
+                letter-spacing: 0.05em;
+                margin-left: 0.5rem;
+            }
             
-            /* CRAAP Grid */
             .craap-grid {
                 display: grid;
                 grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
@@ -494,7 +582,6 @@
                 line-height: 1.5;
             }
             
-            /* Citation Examples - Expandable */
             details {
                 margin-bottom: 1.5rem;
                 background: #f8fafc;
@@ -540,7 +627,6 @@
                 margin-bottom: 0.5rem;
             }
             
-            /* Resource Lists */
             .resource-grid {
                 display: grid;
                 grid-template-columns: 1fr;
@@ -622,7 +708,6 @@
                 border-radius: 2px;
             }
             
-            /* Timer */
             .timer-container {
                 background: #0f172a;
                 border: 3px solid #475569;
@@ -748,7 +833,6 @@
                 outline-offset: 2px;
             }
             
-            /* Flow Table */
             .flow-table {
                 width: 100%;
                 overflow-x: auto;
@@ -789,8 +873,41 @@
                 width: 100%;
                 font-size: 0.9rem;
             }
+
+            .team-roles {
+                background: #0f172a;
+                border: 2px solid #475569;
+                border-radius: 0.5rem;
+                padding: 1.5rem;
+                margin-top: 2rem;
+            }
+
+            .team-roles h4 {
+                color: #e8a838;
+                font-size: 1.1rem;
+                margin-bottom: 1rem;
+            }
+
+            .role-item {
+                display: grid;
+                grid-template-columns: 200px 1fr;
+                gap: 1rem;
+                margin-bottom: 0.75rem;
+                align-items: center;
+            }
+
+            .role-label {
+                color: #93c5fd;
+                font-weight: 600;
+            }
+
+            .glossary-term {
+                color: #e8a838;
+                font-weight: 600;
+                border-bottom: 1px dotted #e8a838;
+                cursor: help;
+            }
             
-            /* Utility Text Colors */
             .text-white { color: #ffffff; }
             .text-yellow { color: #e8a838; }
             .text-green { color: #86efac; }
@@ -802,7 +919,6 @@
             .text-gray-light { color: #e2e8f0; }
             .text-gray { color: #cbd5e1; }
             
-            /* Utility Spacing */
             .mb-1 { margin-bottom: 0.5rem; }
             .mb-2 { margin-bottom: 1rem; }
             .mb-3 { margin-bottom: 1.5rem; }
@@ -812,7 +928,6 @@
             .mt-3 { margin-top: 1.5rem; }
             .mt-4 { margin-top: 2rem; }
             
-            /* Auto-save indicator */
             .save-indicator {
                 position: fixed;
                 top: 1rem;
@@ -834,26 +949,123 @@
                 opacity: 1;
             }
             
-            /* Print Styles */
             @media print {
-                .container { background: white; padding: 1rem; }
-                .header-panel, .controls-panel, .section-panel { 
+                .container { 
+                    background: white; 
+                    padding: 0.5rem; 
+                }
+                
+                .header-panel { 
                     border: 2px solid #000; 
                     background: white; 
+                    padding: 1rem;
                     page-break-inside: avoid;
                 }
-                h1, h2, h3, label, .card-title { color: #000 !important; }
-                .text-white, .text-yellow, .text-green, .text-blue { color: #000 !important; }
+                
+                .logo-container, .intro-text, .button-group, .pulse-ring { 
+                    display: none; 
+                }
+                
+                h1 { 
+                    color: #000 !important; 
+                    font-size: 1.5rem;
+                    text-shadow: none;
+                }
+                
+                .subtitle {
+                    color: #000 !important;
+                }
+
+                .getting-started, .progress-tracker, .dismiss-guide {
+                    display: none;
+                }
+                
+                .controls-panel, .section-panel { 
+                    border: 1px solid #000; 
+                    background: white; 
+                    page-break-inside: avoid;
+                    margin-bottom: 1rem;
+                    box-shadow: none;
+                }
+                
+                .section-header {
+                    background: #f0f0f0 !important;
+                    border-bottom: 1px solid #000;
+                    padding: 0.5rem 1rem;
+                }
+                
+                .section-title h2 { 
+                    color: #000 !important; 
+                    font-size: 1.1rem;
+                }
+                
+                .section-title svg {
+                    display: none;
+                }
+                
+                .section-content {
+                    padding: 1rem;
+                }
+                
+                label { 
+                    color: #000 !important; 
+                    font-size: 0.9rem;
+                }
+                
                 input, textarea, select { 
                     border: 1px solid #000; 
                     background: white; 
-                    color: #000; 
+                    color: #000 !important;
+                    padding: 0.5rem;
+                    font-size: 0.9rem;
+                    page-break-inside: avoid;
                 }
-                .btn-primary, .btn-secondary, .btn-tertiary, .timer-controls, .button-group, .btn-add, .btn-delete { display: none; }
-                .logo-circle { border: 2px solid #000; background: #f0f0f0; }
-                .pulse-ring { display: none; }
-                .info-box { border: 2px solid #000; }
-                .save-indicator { display: none; }
+                
+                input:empty, textarea:empty, select:empty {
+                    display: none;
+                }
+                
+                .info-box { 
+                    border: 1px solid #000; 
+                    background: #f9f9f9;
+                    color: #000 !important;
+                    padding: 0.75rem;
+                    font-size: 0.85rem;
+                }
+                
+                .card {
+                    border: 1px solid #000;
+                    background: white;
+                    padding: 0.75rem;
+                    page-break-inside: avoid;
+                }
+                
+                .card-title {
+                    color: #000 !important;
+                    font-size: 0.95rem;
+                }
+                
+                .btn-primary, .btn-secondary, .btn-add, .btn-delete, 
+                .btn-delete-example, .timer-controls, .button-group,
+                .save-indicator, .example-badge, .resource-grid,
+                details, .timer-container, .timer-buttons, .timer-display,
+                .team-roles, .flow-table {
+                    display: none !important;
+                }
+                
+                .progress-icon svg {
+                    display: inline;
+                }
+                
+                .card[data-has-content="false"] {
+                    display: none;
+                }
+                
+                * {
+                    color-adjust: exact;
+                    -webkit-print-color-adjust: exact;
+                    print-color-adjust: exact;
+                }
             }
         `;
 
@@ -862,10 +1074,11 @@
                 super();
                 this.attachShadow({ mode: 'open' });
                 
-                // Initialize state
+                // Initialize state with 2 example entries
                 this.state = {
                     position: 'pro',
                     selectedPlant: '',
+                    showGettingStarted: true,
                     expandedSections: {
                         research: true,
                         searchStrategy: false,
@@ -885,11 +1098,64 @@
                         economic: '', 
                         future: ''
                     },
-                    arguments: [],
-                    counterArgs: [],
-                    evidence: [],
+                    arguments: [
+                        {
+                            claim: 'Nuclear power is essential for reducing carbon emissions',
+                            data: 'Salem and Hope Creek plants prevent 10 million tons of CO₂ per year',
+                            warrant: 'We need low-carbon energy sources now, and nuclear provides reliable power 24/7 unlike solar and wind',
+                            qualifier: 'Based on current technology and NJ climate goals',
+                            rebuttal: 'Some say renewables can do this job, but they need backup power for cloudy/windless days',
+                            source: '',
+                            isExample: true
+                        }
+                    ],
+                    counterArgs: [
+                        {
+                            opposing: 'Nuclear waste stays dangerous for thousands of years',
+                            understanding: 'They have a point—high-level waste does remain radioactive for a very long time, and we don\'t have a permanent storage solution yet',
+                            rebuttal: 'True, but the amount is very small (a soda can per person per lifetime), and dry cask storage has worked safely for decades',
+                            isExample: true
+                        }
+                    ],
+                    evidence: [
+                        {
+                            claim: 'Nuclear has the lowest death rate per unit of energy produced',
+                            source: 'Our World in Data, University of Oxford research',
+                            citation: '',
+                            citationType: 'mla',
+                            currency: '5',
+                            relevance: '5',
+                            authority: '5',
+                            accuracy: '5',
+                            purpose: '5',
+                            reliability: 'University research project, peer-reviewed data, no financial stake in nuclear industry',
+                            isExample: true
+                        },
+                        {
+                            claim: 'Renewable energy is becoming cheaper than nuclear',
+                            source: 'Lazard\'s Levelized Cost of Energy Analysis',
+                            citation: '',
+                            citationType: 'mla',
+                            currency: '5',
+                            relevance: '4',
+                            authority: '4',
+                            accuracy: '5',
+                            purpose: '4',
+                            reliability: 'Financial advisory firm, annual report used by industry, generally credible but check for context on what costs are included',
+                            isExample: true
+                        }
+                    ],
+                    evidenceAgainst: [],
                     questions: [],
                     flow: [],
+                    teamRoles: {
+                        opening: '',
+                        mainArgs: '',
+                        crossEx: '',
+                        closing: '',
+                        researcher: '',
+                        strategy: ''
+                    },
                     openingStatement: '',
                     closingStatement: '',
                     timerActive: false,
@@ -898,83 +1164,73 @@
                 };
 
                 this.timerInterval = null;
-                this.storageKey = 'nuclear-debate-prep-data-final';
+                this.storageKey = 'nuclear-debate-prep-hs-edition';
                 this.saveTimeout = null;
                 
-                // Enhanced plant data
+                // Updated plant data with 2024-2026 context
                 this.plants = {
                     nj: [{
                         name: 'Salem + Hope Creek',
                         operator: 'PSEG Nuclear',
                         state: 'New Jersey',
-                        reactors: 'Salem 1 & 2 (Pressurized Water Reactor - PWR), Hope Creek (Boiling Water Reactor - BWR)',
-                        capacity: '3,478 MW combined',
-                        commission: 'Salem 1: 1977, Salem 2: 1981, Hope Creek: 1986',
-                        cooling: 'Once-through cooling using Delaware River water',
-                        keyFacts: 'Largest nuclear facility on East Coast; supplies approximately 40% of New Jersey\'s electricity'
+                        reactors: 'Salem 1 & 2 (PWR type), Hope Creek (BWR type)',
+                        capacity: '3,478 MW total',
+                        keyFacts: 'Largest nuclear facility on East Coast; provides about 40% of NJ electricity. Received license extension to operate through 2040s.'
                     }],
                     ny: [
                         {
                             name: 'James A. FitzPatrick',
                             operator: 'Constellation Energy',
                             state: 'New York',
-                            reactors: 'Single-unit Boiling Water Reactor (BWR)',
+                            reactors: 'BWR type',
                             capacity: '852 MW',
-                            commission: '1975',
-                            cooling: 'Once-through cooling using Lake Ontario water',
-                            keyFacts: 'Nearly shut down in 2017 but was purchased by Exelon (now Constellation) and remains operational'
+                            keyFacts: 'Was nearly closed in 2017 but purchased by Exelon (now Constellation) and continues operating. Compare to Indian Point which closed in 2021.'
                         },
                         {
                             name: 'Ginna',
                             operator: 'Constellation Energy',
                             state: 'New York',
-                            reactors: 'Single-unit Pressurized Water Reactor (PWR)',
+                            reactors: 'PWR type',
                             capacity: '582 MW',
-                            commission: '1970',
-                            cooling: 'Once-through cooling using Lake Ontario water',
-                            keyFacts: 'Oldest operating nuclear plant in New York; provides power to Rochester area'
+                            keyFacts: 'Oldest operating nuclear plant in NY (since 1970); serves Rochester area. License extended through 2029.'
                         },
                         {
                             name: 'Nine Mile Point Unit 1',
                             operator: 'Constellation Energy',
                             state: 'New York',
-                            reactors: 'Boiling Water Reactor (BWR)',
+                            reactors: 'BWR type',
                             capacity: '621 MW',
-                            commission: '1969',
-                            cooling: 'Once-through cooling using Lake Ontario water',
-                            keyFacts: 'Part of Nine Mile Point station which includes two units'
+                            keyFacts: 'Part of two-unit Nine Mile Point station. Operating since 1969, license extended to 2029.'
                         },
                         {
                             name: 'Nine Mile Point Unit 2',
                             operator: 'Constellation Energy',
                             state: 'New York',
-                            reactors: 'Boiling Water Reactor (BWR)',
+                            reactors: 'BWR type',
                             capacity: '1,287 MW',
-                            commission: '1988',
-                            cooling: 'Once-through cooling using Lake Ontario water',
-                            keyFacts: 'Larger, newer unit at Nine Mile Point; shares site with Unit 1'
+                            keyFacts: 'Newer, larger unit at Nine Mile Point (1988). License extended to 2046.'
                         }
                     ]
                 };
                 
-                // Enhanced research resources with additional perspectives
+                // Research resources (unchanged)
                 this.researchResources = [
                     { 
                         category: 'Nuclear Power Plant Information', 
-                        authorityLevel: 'Primary/Government',
-                        evaluationNote: 'NRC provides regulatory oversight data—authoritative for safety records and technical specifications, but may not address economic or policy debates comprehensively.',
+                        authorityLevel: 'Government Sources',
+                        evaluationNote: 'Official government data on safety, operations, and regulations. Very reliable for facts, but won\'t tell you what policies should be.',
                         items: [
                             { name: 'U.S. Nuclear Regulatory Commission', url: 'https://www.nrc.gov' },
-                            { name: 'NRC Plant Information Database', url: 'https://www.nrc.gov/reactors/operating/list-power-reactor-units.html' },
-                            { name: 'Department of Energy - Nuclear', url: 'https://www.energy.gov/ne/nuclear-energy' },
-                            { name: 'NYSERDA (NY State Energy)', url: 'https://www.nyserda.ny.gov' },
-                            { name: 'NJ Board of Public Utilities', url: 'https://www.nj.gov/bpu/' }
+                            { name: 'NRC Plant Database', url: 'https://www.nrc.gov/reactors/operating/list-power-reactor-units.html' },
+                            { name: 'Department of Energy', url: 'https://www.energy.gov/ne/nuclear-energy' },
+                            { name: 'NY State Energy (NYSERDA)', url: 'https://www.nyserda.ny.gov' },
+                            { name: 'NJ Public Utilities', url: 'https://www.nj.gov/bpu/' }
                         ]
                     },
                     { 
-                        category: 'Library Databases: Controversial Issues', 
-                        authorityLevel: 'Secondary/Curated',
-                        evaluationNote: 'Pre-vetted sources presenting multiple viewpoints—ideal for understanding the debate landscape and finding balanced perspectives. Always verify and cite original sources when possible.',
+                        category: 'Library Databases: Different Viewpoints', 
+                        authorityLevel: 'Curated Collections',
+                        evaluationNote: 'These databases give you pro AND con perspectives. Great starting point, but always track down original sources.',
                         items: [
                             { name: 'Gale in Context: Global Issues', url: 'https://link.gale.com/apps/GIC?u=nort87507' },
                             { name: 'Gale in Context: Opposing Viewpoints', url: 'https://link.gale.com/apps/OVIC?u=nort87507' },
@@ -983,9 +1239,9 @@
                         ]
                     },
                     { 
-                        category: 'Library Databases: Scientific Information', 
-                        authorityLevel: 'Secondary/Educational',
-                        evaluationNote: 'Excellent for understanding nuclear physics, reactor technology, and environmental science. Look for peer-reviewed sources and current research.',
+                        category: 'Library Databases: Science', 
+                        authorityLevel: 'Science & Tech',
+                        evaluationNote: 'Good for understanding how nuclear energy actually works. Look for recent articles.',
                         items: [
                             { name: 'Grolier ScienceFlix', url: 'http://scienceflix.digital.scholastic.com/' },
                             { name: 'Infobase Science Online', url: 'https://online.infobaselearning.com/Direct.aspx?pid=WE40&aid=17282' },
@@ -993,9 +1249,9 @@
                         ]
                     },
                     { 
-                        category: 'General Information & News', 
-                        authorityLevel: 'Tertiary/Current Events',
-                        evaluationNote: 'Useful for recent developments, community perspectives, and policy changes. Cross-reference news stories with primary sources when making factual claims.',
+                        category: 'News & General Info', 
+                        authorityLevel: 'Current Events',
+                        evaluationNote: 'Useful for recent news, but news articles aren\'t the same as research studies. Check what sources they cite.',
                         items: [
                             { name: 'Britannica School', url: 'http://school.eb.com/' },
                             { name: 'New York Times', url: 'https://www.nytimes.com' },
@@ -1003,15 +1259,15 @@
                         ]
                     },
                     { 
-                        category: 'Additional Perspectives', 
-                        authorityLevel: 'Mixed/Diverse',
-                        evaluationNote: 'International organizations, advocacy groups, and industry sources provide diverse perspectives. Pay special attention to each organization\'s mission and funding sources when evaluating their claims.',
+                        category: 'Different Perspectives', 
+                        authorityLevel: 'Various Groups',
+                        evaluationNote: 'These represent different viewpoints. The key: know who\'s behind each source and what their angle is.',
                         items: [
-                            { name: 'International Atomic Energy Agency (IAEA)', url: 'https://www.iaea.org' },
-                            { name: 'Union of Concerned Scientists - Nuclear', url: 'https://www.ucsusa.org/nuclear-power' },
-                            { name: 'Nuclear Energy Institute (Industry)', url: 'https://www.nei.org' },
+                            { name: 'International Atomic Energy Agency', url: 'https://www.iaea.org' },
+                            { name: 'Union of Concerned Scientists', url: 'https://www.ucsusa.org/nuclear-power' },
+                            { name: 'Nuclear Energy Institute (industry group)', url: 'https://www.nei.org' },
                             { name: 'World Nuclear Association', url: 'https://www.world-nuclear.org' },
-                            { name: 'EPA RadTown - Nuclear Plants', url: 'https://www.epa.gov/radtown/nuclear-power-plants' }
+                            { name: 'EPA Nuclear Info', url: 'https://www.epa.gov/radtown/nuclear-power-plants' }
                         ]
                     }
                 ];
@@ -1032,13 +1288,21 @@
                 }
             }
 
-            // Storage methods
             loadState() {
                 try {
                     const saved = localStorage.getItem(this.storageKey);
+                    const guideDismissed = localStorage.getItem(this.storageKey + '-guide-dismissed');
+                    
                     if (saved) {
                         const data = JSON.parse(saved);
-                        this.state = { ...this.state, ...data };
+                        // Merge saved data but keep example entries if starting fresh
+                        if (data.arguments && data.arguments.length > 0) {
+                            this.state = { ...this.state, ...data };
+                        }
+                    }
+                    
+                    if (guideDismissed === 'true') {
+                        this.state.showGettingStarted = false;
                     }
                 } catch (e) {
                     console.warn('Could not load saved data:', e);
@@ -1073,45 +1337,108 @@
                 }
             }
 
-            exportData() {
-                const dataStr = JSON.stringify(this.state, null, 2);
-                const blob = new Blob([dataStr], { type: 'application/json' });
-                const url = URL.createObjectURL(blob);
-                const a = document.createElement('a');
-                a.href = url;
-                const plantName = this.state.selectedPlant.replace(/\s+/g, '_') || 'unknown';
-                a.download = `debate-prep-${this.state.position}-${plantName}-${Date.now()}.json`;
-                a.click();
-                URL.revokeObjectURL(url);
+            dismissGettingStarted() {
+                this.state.showGettingStarted = false;
+                localStorage.setItem(this.storageKey + '-guide-dismissed', 'true');
+                this.render();
             }
 
-            importData() {
-                const input = document.createElement('input');
-                input.type = 'file';
-                input.accept = 'application/json';
-                input.onchange = (e) => {
-                    const file = e.target.files[0];
-                    if (!file) return;
-                    
-                    const reader = new FileReader();
-                    reader.onload = (event) => {
-                        try {
-                            const imported = JSON.parse(event.target.result);
-                            if (imported && typeof imported === 'object') {
-                                this.state = { ...this.state, ...imported };
-                                this.saveState();
-                                this.render();
-                                alert('Data imported successfully!');
-                            } else {
-                                alert('Invalid file format');
-                            }
-                        } catch (err) {
-                            alert('Error importing file: ' + err.message);
-                        }
-                    };
-                    reader.readAsText(file);
+            getProgress() {
+                const hasPosition = !!this.state.selectedPlant;
+                const researchComplete = Object.values(this.state.researchNotes).filter(n => n.trim().length > 0).length >= 4;
+                const hasArguments = this.state.arguments.filter(a => !a.isExample && a.claim).length >= 2;
+                const hasCounterArgs = this.state.counterArgs.filter(c => !c.isExample && c.opposing).length >= 2;
+                const hasEvidence = this.state.evidence.filter(e => !e.isExample && e.claim).length >= 3;
+                const hasStatements = this.state.openingStatement.trim().length > 0 || this.state.closingStatement.trim().length > 0;
+                
+                return {
+                    hasPosition,
+                    researchComplete,
+                    hasArguments,
+                    hasCounterArgs,
+                    hasEvidence,
+                    hasStatements
                 };
-                input.click();
+            }
+
+            printCheatSheet() {
+                const nonExampleArgs = this.state.arguments.filter(a => !a.isExample);
+                const nonExampleEvidence = this.state.evidence.filter(e => !e.isExample);
+                const nonExampleCounterArgs = this.state.counterArgs.filter(c => !c.isExample);
+                
+                const cheatSheet = `
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Debate Cheat Sheet - ${this.state.position.toUpperCase()}</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; max-width: 800px; margin: 0 auto; }
+        h1 { font-size: 18px; margin-bottom: 10px; border-bottom: 2px solid #000; }
+        h2 { font-size: 14px; margin-top: 15px; margin-bottom: 5px; }
+        .section { margin-bottom: 15px; }
+        .item { margin-bottom: 8px; font-size: 12px; }
+        .label { font-weight: bold; }
+        @media print { 
+            body { padding: 10px; }
+            .no-print { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <button class="no-print" onclick="window.print()" style="margin-bottom: 10px; padding: 10px 20px;">Print This Sheet</button>
+    
+    <h1>Nuclear Power Debate Cheat Sheet</h1>
+    <p><strong>Position:</strong> ${this.state.position.toUpperCase()} | <strong>Plant:</strong> ${this.state.selectedPlant || 'Not selected'}</p>
+    
+    <div class="section">
+        <h2>Main Arguments (Claims Only)</h2>
+        ${nonExampleArgs.map((arg, i) => `
+            <div class="item">${i + 1}. ${arg.claim || 'Not yet written'}</div>
+        `).join('')}
+    </div>
+    
+    <div class="section">
+        <h2>Top Evidence Sources</h2>
+        ${nonExampleEvidence.slice(0, 5).map((ev, i) => `
+            <div class="item">
+                <div><span class="label">${i + 1}. Claim:</span> ${ev.claim}</div>
+                <div><span class="label">Source:</span> ${ev.source}</div>
+                ${ev.citation ? `<div><span class="label">Citation:</span> ${ev.citation}</div>` : ''}
+            </div>
+        `).join('')}
+    </div>
+    
+    <div class="section">
+        <h2>Counter-Arguments to Address</h2>
+        ${nonExampleCounterArgs.slice(0, 3).map((c, i) => `
+            <div class="item">
+                <div><span class="label">${i + 1}. They'll say:</span> ${c.opposing}</div>
+                <div><span class="label">We respond:</span> ${c.rebuttal || 'Prepare response'}</div>
+            </div>
+        `).join('')}
+    </div>
+    
+    <div class="section">
+        <h2>Opening Hook</h2>
+        <div class="item">${this.state.openingStatement ? this.state.openingStatement.substring(0, 200) + '...' : 'Write your opening'}</div>
+    </div>
+    
+    <div class="section">
+        <h2>Closing Line</h2>
+        <div class="item">${this.state.closingStatement ? this.state.closingStatement.substring(this.state.closingStatement.length - 200) : 'Write your closing'}</div>
+    </div>
+    
+    <div class="section">
+        <h2>Debate Timer Schedule</h2>
+        <div class="item">Opening: 2 minutes | Main Arguments: 4 minutes | Cross-Exam: 3 minutes | Closing: 2 minutes</div>
+    </div>
+</body>
+</html>
+                `;
+                
+                const printWindow = window.open('', '_blank');
+                printWindow.document.write(cheatSheet);
+                printWindow.document.close();
             }
 
             setupTimer() {
@@ -1172,7 +1499,6 @@
                 });
             }
 
-            // Render methods
             renderHeader() {
                 return `
                     <div class="header-panel">
@@ -1182,25 +1508,91 @@
                                 <div class="pulse-ring"></div>
                             </div>
                             <div>
-                                <h1>NUCLEAR DEBATE PREP SYSTEM</h1>
-                                <div class="subtitle">Research & Argumentation Module - Final Edition</div>
+                                <h1>NUCLEAR DEBATE PREP</h1>
+                                <div class="subtitle">Research & Argument Builder</div>
                             </div>
                         </div>
                         <p class="intro-text">
-                            Build well-supported, intellectually honest arguments on nuclear power. This tool teaches 
-                            rigorous research methodology, charitable engagement with opposing views, and transferable 
-                            academic habits for college-level discourse.
+                            This tool helps you research nuclear power and build strong, fair arguments for your debate. 
+                            Nuclear power is complicated—experts disagree about it. Your goal: show you've done solid research 
+                            and can defend your position thoughtfully.
                         </p>
                         <div class="button-group">
                             <button class="btn-primary" data-action="print" aria-label="Print your work">
-                                ${icons.Printer} Print Your Work
+                                ${icons.Printer} Print Full Work
                             </button>
-                            <button class="btn-secondary" data-action="export" aria-label="Export data as JSON file">
-                                ${icons.Download} Export Data
+                            <button class="btn-secondary" data-action="print-cheat" aria-label="Print one-page cheat sheet">
+                                ${icons.FileText} Print Cheat Sheet
                             </button>
-                            <button class="btn-tertiary" data-action="import" aria-label="Import previously saved data">
-                                ${icons.Upload} Import Data
-                            </button>
+                        </div>
+                    </div>
+                `;
+            }
+
+            renderGettingStarted() {
+                if (!this.state.showGettingStarted) return '';
+                
+                return `
+                    <div class="getting-started">
+                        <button class="dismiss-guide" data-action="dismiss-guide" aria-label="Dismiss getting started guide">
+                            ${icons.X}
+                        </button>
+                        <h3>📍 NEW TO THIS TOOL? START HERE:</h3>
+                        <ol>
+                            <li>Pick your side and plant (right below this box)</li>
+                            <li>Read the "Research Your Topic" section - fill in those notes first</li>
+                            <li>Then move to "Build Your Arguments" - use the examples as models</li>
+                            <li>Check your sources in "Track Your Evidence"</li>
+                            <li>Practice with the timer before debate day!</li>
+                        </ol>
+                        <p>💡 Delete the example entries once you understand the format.</p>
+                    </div>
+                `;
+            }
+
+            renderProgress() {
+                const progress = this.getProgress();
+                
+                return `
+                    <div class="progress-tracker">
+                        <h3>Your Progress</h3>
+                        <div class="progress-items">
+                            <div class="progress-item ${progress.hasPosition ? 'complete' : ''}">
+                                <span class="progress-icon">
+                                    ${progress.hasPosition ? icons.CheckCircle : icons.Circle}
+                                </span>
+                                Position & plant selected
+                            </div>
+                            <div class="progress-item ${progress.researchComplete ? 'complete' : ''}">
+                                <span class="progress-icon">
+                                    ${progress.researchComplete ? icons.CheckCircle : icons.Circle}
+                                </span>
+                                Research notes (4+ sections)
+                            </div>
+                            <div class="progress-item ${progress.hasArguments ? 'complete' : ''}">
+                                <span class="progress-icon">
+                                    ${progress.hasArguments ? icons.CheckCircle : icons.Circle}
+                                </span>
+                                At least 2 arguments built
+                            </div>
+                            <div class="progress-item ${progress.hasCounterArgs ? 'complete' : ''}">
+                                <span class="progress-icon">
+                                    ${progress.hasCounterArgs ? icons.CheckCircle : icons.Circle}
+                                </span>
+                                At least 2 counter-arguments
+                            </div>
+                            <div class="progress-item ${progress.hasEvidence ? 'complete' : ''}">
+                                <span class="progress-icon">
+                                    ${progress.hasEvidence ? icons.CheckCircle : icons.Circle}
+                                </span>
+                                At least 3 evidence sources
+                            </div>
+                            <div class="progress-item ${progress.hasStatements ? 'complete' : ''}">
+                                <span class="progress-icon">
+                                    ${progress.hasStatements ? icons.CheckCircle : icons.Circle}
+                                </span>
+                                Opening/closing drafted
+                            </div>
                         </div>
                     </div>
                 `;
@@ -1212,19 +1604,19 @@
                     <div class="controls-panel">
                         <div class="grid-2 mb-3">
                             <div>
-                                <label for="position-select">Your Debate Position</label>
+                                <label for="position-select">Your Debate Side</label>
                                 <select id="position-select" data-bind="position" aria-describedby="position-help">
                                     <option value="pro" ${this.state.position === 'pro' ? 'selected' : ''}>PRO: Support Nuclear Energy</option>
                                     <option value="con" ${this.state.position === 'con' ? 'selected' : ''}>CON: Oppose Nuclear Energy</option>
                                 </select>
                                 <p id="position-help" class="help-text">
-                                    Choose the position your team will defend in the debate
+                                    Which side will your team argue?
                                 </p>
                             </div>
                             <div>
-                                <label for="plant-select">Select a Nuclear Plant</label>
+                                <label for="plant-select">Choose a Nuclear Plant</label>
                                 <select id="plant-select" data-bind="selectedPlant" aria-describedby="plant-help">
-                                    <option value="">Choose a facility to research...</option>
+                                    <option value="">Pick one to research...</option>
                                     <optgroup label="New Jersey">
                                         ${this.plants.nj.map(p => `
                                             <option value="${p.name}" ${this.state.selectedPlant === p.name ? 'selected' : ''}>
@@ -1241,29 +1633,17 @@
                                     </optgroup>
                                 </select>
                                 <p id="plant-help" class="help-text">
-                                    Select a specific nuclear facility for focused research
+                                    Select a specific plant to research
                                 </p>
                             </div>
                         </div>
                         ${this.state.selectedPlant && plantInfo ? `
                             <div class="info-box info-box-blue">
-                                <strong>Research Protocol for ${this.state.selectedPlant}:</strong><br>
-                                <strong>Reactor Type:</strong> ${plantInfo.reactors}<br>
-                                <strong>Capacity:</strong> ${plantInfo.capacity}<br>
-                                <strong>Commissioned:</strong> ${plantInfo.commission}<br>
-                                <strong>Cooling System:</strong> ${plantInfo.cooling}<br>
-                                <strong>Key Facts:</strong> ${plantInfo.keyFacts}<br><br>
-                                Check the NRC's plant information database for technical specifications and inspection reports. 
-                                Look for ${plantInfo.operator}'s public documents on safety and operations. 
-                                Search local news archives for community response and environmental impact discussions.
-                            </div>
-                        ` : ''}
-                        ${this.state.selectedPlant ? `
-                            <div class="info-box info-box-purple">
-                                <strong>Whose perspectives might be missing?</strong> Consider seeking out voices from: 
-                                Indigenous communities near uranium mines, nuclear plant workers and labor unions, 
-                                environmental justice organizations in fence-line communities, next-generation nuclear engineers, 
-                                waste repository host communities, and climate scientists studying energy transitions.
+                                <strong>Quick Facts: ${this.state.selectedPlant}</strong><br>
+                                <strong>Who runs it:</strong> ${plantInfo.operator}<br>
+                                <strong>Type:</strong> ${plantInfo.reactors}<br>
+                                <strong>Power output:</strong> ${plantInfo.capacity}<br>
+                                <strong>Current status:</strong> ${plantInfo.keyFacts}
                             </div>
                         ` : ''}
                     </div>
@@ -1273,59 +1653,91 @@
             renderResearchSection() {
                 if (!this.state.expandedSections.research) return '';
                 
-                const plantInfo = this.getPlantInfo();
                 const components = [
                     { 
                         key: 'intro', 
                         label: 'Nuclear Power Basics', 
-                        prompt: 'In 2-3 sentences each: (1) Explain nuclear fission and how it releases energy. (2) How does a reactor convert this energy to electricity? (3) List 3 main PRO arguments you encounter in research. (4) List 3 main CON arguments you encounter. Note: You don\'t need to agree with all of these—just accurately represent what each side claims.' 
+                        bullets: [
+                            'What is nuclear fission? (How does splitting atoms create energy?)',
+                            'How does a reactor turn that energy into electricity?',
+                            '⚠️ NOTE: Power plants use FISSION (splitting atoms). FUSION (combining atoms, like the sun) is still experimental. If you see "fusion breakthrough" news, that\'s different tech.',
+                            'List 3 reasons people SUPPORT nuclear power',
+                            'List 3 reasons people OPPOSE nuclear power'
+                        ]
                     },
                     { 
                         key: 'plant', 
-                        label: this.state.selectedPlant ? `Your Plant: ${this.state.selectedPlant}` : 'Your Plant: Location & History',
-                        prompt: this.state.selectedPlant && plantInfo ? 
-                            `Research and document: When was ${this.state.selectedPlant} built and commissioned (${plantInfo.commission})? Where exactly is it located? Who operates it (${plantInfo.operator})? What type of reactor is used (${plantInfo.reactors})? What are key historical events, upgrades, or incidents? How has the plant's role in regional energy evolved over time?` : 
-                            'Select a plant above to see customized research prompts with technical details' 
+                        label: this.state.selectedPlant ? `About ${this.state.selectedPlant}` : 'About Your Plant',
+                        bullets: this.state.selectedPlant ? [
+                            'When was it built?',
+                            'Where exactly is it located?',
+                            'What kind of reactor does it use? (PWR = Pressurized Water Reactor, BWR = Boiling Water Reactor)',
+                            'Any major events in its history? (upgrades, problems, close calls?)',
+                            'Compare: Why did Indian Point (NY) close in 2021 while your plant stayed open?'
+                        ] : ['Select a plant above to see research questions']
                     },
                     { 
                         key: 'operations', 
-                        label: 'Operations & Technology', 
-                        prompt: plantInfo ? 
-                            `Research and note: (1) Reactor type (${plantInfo.reactors.includes('PWR') ? 'Pressurized Water Reactor - explain how it works' : 'Boiling Water Reactor - explain how it works'}), (2) Nameplate capacity (${plantInfo.capacity}) vs. typical capacity factor (~90% for nuclear), (3) Annual electricity output, (4) Primary safety systems (containment, ECCS, etc.), (5) Emergency shutdown procedures (SCRAM system)` :
-                            'Research and note: (1) Reactor type (PWR? BWR?), (2) Capacity in megawatts, (3) Typical capacity factor, (4) Annual output compared to demand, (5) Primary safety systems, (6) Emergency procedures'
+                        label: 'How It Works',
+                        bullets: [
+                            'What type of reactor does it use?',
+                            'How much electricity does it produce?',
+                            'What is its capacity factor? (% of time running at full power—nuclear is usually around 90%)',
+                            'What safety systems does it have?',
+                            'What happens in an emergency?'
+                        ]
                     },
                     { 
                         key: 'environmental', 
-                        label: 'Environmental & Health Impacts', 
-                        prompt: plantInfo ?
-                            `Investigate: How does the plant impact local environment (thermal pollution from ${plantInfo.cooling})? What is the water temperature increase and documented impact on aquatic ecosystems? How is spent nuclear fuel currently stored (dry cask vs. cooling pools)? What volume of high-level waste is produced annually? Have there been safety incidents, radiation releases, or NRC violations? How do lifecycle carbon emissions (~12g CO₂/kWh) compare to solar (~40g), wind (~11g), coal (~820g), and natural gas (~490g)? What is the land use footprint compared to equivalent renewable energy capacity?` :
-                            'Investigate: Impact on local water sources (thermal pollution, water usage)? How is nuclear waste managed (on-site storage, transportation, long-term disposal plans)? What is the radiation dose to nearby communities compared to background radiation? Have there been safety incidents or violations? How do lifecycle emissions compare to alternatives? What is the land use comparison?'
+                        label: 'Environment & Health',
+                        bullets: [
+                            'How does it affect local water? (temperature, usage)',
+                            'Where does the nuclear waste go? How is it stored?',
+                            'Have there been any safety problems or violations?',
+                            'How does it compare to coal/gas/solar/wind for carbon emissions?',
+                            'How much land does it use compared to other energy sources?'
+                        ]
                     },
                     { 
                         key: 'economic', 
-                        label: 'Economic & Social Aspects', 
-                        prompt: 'Research: What is the economic contribution in jobs (construction, operation, support services) and tax revenue? What are the total operating costs vs. revenue from electricity sales? How does the levelized cost of energy (LCOE) compare to new renewables (~$30-40/MWh for utility solar/wind) and existing fossil fuel plants? What subsidies or economic supports does the plant receive (e.g., Zero Emission Credits in NY/NJ)? How does the local community perceive the plant—conduct a news search for recent community meetings or opposition? What alternatives exist in the region and at what cost? How would plant closure affect regional electricity prices and grid reliability?' 
+                        label: 'Money & Community',
+                        bullets: [
+                            'How many jobs does it provide?',
+                            'How much does it cost to run? (You\'ll see different cost numbers—check if they mean running an EXISTING plant like yours OR building a brand NEW one. That\'s why people disagree!)',
+                            'Does it get Zero Emission Credits (ZECs)—money from NY or NJ to keep running because it doesn\'t emit carbon? How much?',
+                            'What does the local community think about it?',
+                            'What if it closed? (jobs, electricity prices, replacement power)'
+                        ]
                     },
                     { 
                         key: 'future', 
-                        label: 'Future of Nuclear Energy in NY/NJ', 
-                        prompt: 'Investigate: Are there plans for new nuclear projects (including Small Modular Reactors—SMRs), plant license extensions (from 60 to 80 years), or scheduled shutdowns? How do NY and NJ clean energy mandates (100% clean by 2040 in NY, 50% by 2030 in NJ) influence nuclear power\'s role? How does nuclear compare to renewable energy sources in meeting state climate goals? What is the timeline for renewable energy deployment to potentially replace nuclear capacity? What role might nuclear play in grid stability as intermittent renewables scale up? What are the economic and technical challenges of plant decommissioning (estimated $1+ billion, 10-15 years)?' 
+                        label: 'Future Plans',
+                        bullets: [
+                            'Is it staying open or closing? When does its license expire?',
+                            'Are there plans for new nuclear plants in NY/NJ?',
+                            'What are NY and NJ climate goals? Does nuclear fit in?',
+                            'Could renewable energy replace this plant? When?',
+                            'What happens if it closes? (Decommissioning takes 10-15 years, costs $1+ billion)'
+                        ]
                     }
                 ];
 
                 return `
                     <div class="section-content">
                         <div class="info-box info-box-blue">
-                            <strong>Research Strategy & Intellectual Honesty:</strong> Nuclear power is a complex 
-                            issue where knowledgeable experts reasonably disagree. Your goal is to build the 
-                            <em>best-supported case</em> for your assigned position, not to find "the truth." 
-                            Use diverse sources: government data for facts, peer-reviewed research for scientific consensus, 
-                            industry perspectives for operational insights, and critical analysis from advocacy groups. 
-                            Note where evidence is strong and where it's uncertain or contested. Strong arguments 
-                            acknowledge complexity and qualify claims appropriately.
+                            <strong>How to Research Well:</strong> This is a real debate where smart people disagree. 
+                            Your job isn't to prove you're 100% right—it's to show you've researched well and can 
+                            back up your arguments. Use different types of sources: government data for facts, 
+                            news for current events, and research studies for deeper analysis.
                         </div>
 
-                        <h3 class="text-white mb-2" style="font-size: 1.3rem; font-weight: 700;">Recommended Resources</h3>
+                        <div class="info-box info-box-yellow">
+                            <strong>Can't Access Databases from Home?</strong> Use them at school or public library. 
+                            Free government sources work without login: NRC.gov, EPA.gov, Energy.gov. 
+                            Ask your librarian about remote access options.
+                        </div>
+
+                        <h3 class="text-white mb-2" style="font-size: 1.3rem; font-weight: 700;">Where to Look</h3>
                         <div class="resource-grid">
                             ${this.researchResources.map(category => `
                                 <div class="resource-card">
@@ -1346,16 +1758,19 @@
                             `).join('')}
                         </div>
 
-                        ${components.map((comp, index) => `
+                        ${components.map((comp) => `
                             <div class="mt-4">
                                 <label for="research-${comp.key}">${comp.label}</label>
-                                <p class="text-gray-light mb-2" style="font-style: italic; font-size: 1.05rem;">
-                                    ${comp.prompt}
-                                </p>
+                                <div class="info-box info-box-green" style="margin-bottom: 1rem;">
+                                    <strong>Find out:</strong>
+                                    <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                                        ${comp.bullets.map(bullet => `<li style="margin-bottom: 0.25rem;">${bullet}</li>`).join('')}
+                                    </ul>
+                                </div>
                                 <textarea 
                                     id="research-${comp.key}"
                                     data-bind="researchNotes.${comp.key}" 
-                                    placeholder="Type your research notes here..."
+                                    placeholder="Write your research notes here..."
                                     aria-label="Research notes for ${comp.label}"
                                 >${this.escapeHtml(this.state.researchNotes[comp.key])}</textarea>
                             </div>
@@ -1370,31 +1785,28 @@
                 return `
                     <div class="section-content">
                         <div class="info-box info-box-purple">
-                            <strong>Search Protocol:</strong> Effective database searching requires strategic use of keywords and Boolean operators. 
-                            Combine terms strategically to find relevant, credible sources. Start broad, then narrow with additional terms.
+                            <strong>Search Smarter:</strong> Use these strategies to find better sources faster in library databases.
                         </div>
 
                         <div class="grid-2">
                             <div class="card card-green">
-                                <h4 class="card-title">Search Terms & Keywords</h4>
+                                <h4 class="card-title">Good Search Terms</h4>
                                 <ul class="text-white" style="list-style: none;">
                                     <li class="mb-2"><span class="text-yellow">▸</span> <strong>nuclear power</strong> OR <strong>nuclear energy</strong></li>
-                                    <li class="mb-2"><span class="text-yellow">▸</span> <strong>reactor safety</strong> OR <strong>nuclear accidents</strong></li>
-                                    <li class="mb-2"><span class="text-yellow">▸</span> <strong>radioactive waste</strong> OR <strong>spent fuel</strong></li>
-                                    <li class="mb-2"><span class="text-yellow">▸</span> <strong>environmental impact</strong> AND <strong>nuclear</strong></li>
-                                    <li class="mb-2"><span class="text-yellow">▸</span> <strong>baseload power</strong> OR <strong>capacity factor</strong></li>
-                                    <li class="mb-2"><span class="text-yellow">▸</span> <strong>lifecycle emissions</strong> OR <strong>carbon footprint</strong></li>
+                                    <li class="mb-2"><span class="text-yellow">▸</span> <strong>reactor safety</strong></li>
+                                    <li class="mb-2"><span class="text-yellow">▸</span> <strong>nuclear waste</strong> OR <strong>radioactive waste</strong></li>
+                                    <li class="mb-2"><span class="text-yellow">▸</span> <strong>carbon emissions</strong></li>
+                                    <li class="mb-2"><span class="text-yellow">▸</span> <strong>renewable energy</strong></li>
                                 </ul>
                             </div>
 
                             <div class="card card-purple">
-                                <h4 class="card-title">Boolean Operators</h4>
+                                <h4 class="card-title">Search Tricks</h4>
                                 <ul class="text-white" style="list-style: none;">
-                                    <li class="mb-2"><span class="text-yellow">▸</span> <strong class="text-orange">AND</strong> narrows results: <em class="text-gray">nuclear AND safety AND "New York"</em></li>
-                                    <li class="mb-2"><span class="text-yellow">▸</span> <strong class="text-orange">OR</strong> expands results: <em class="text-gray">reactor OR plant OR facility</em></li>
-                                    <li class="mb-2"><span class="text-yellow">▸</span> <strong class="text-orange">"quotes"</strong> finds exact phrases: <em class="text-gray">"renewable energy"</em></li>
-                                    <li class="mb-2"><span class="text-yellow">▸</span> <strong class="text-orange">NOT</strong> excludes terms: <em class="text-gray">nuclear NOT weapons</em></li>
-                                    <li class="mb-2"><span class="text-yellow">▸</span> Combine operators: <em class="text-gray">(nuclear OR atomic) AND (waste OR spent fuel) NOT weapons</em></li>
+                                    <li class="mb-2"><span class="text-yellow">▸</span> <strong class="text-orange">AND</strong> makes it more specific: <em class="text-gray">nuclear AND safety</em></li>
+                                    <li class="mb-2"><span class="text-yellow">▸</span> <strong class="text-orange">OR</strong> gives you more results: <em class="text-gray">reactor OR plant</em></li>
+                                    <li class="mb-2"><span class="text-yellow">▸</span> <strong class="text-orange">"quotes"</strong> finds exact phrases: <em class="text-gray">"climate change"</em></li>
+                                    <li class="mb-2"><span class="text-yellow">▸</span> <strong class="text-orange">NOT</strong> excludes stuff: <em class="text-gray">nuclear NOT weapons</em></li>
                                 </ul>
                             </div>
                         </div>
@@ -1408,68 +1820,79 @@
                 return `
                     <div class="section-content">
                         <div class="info-box info-box-green">
-                            <strong>Toulmin Argumentation Model:</strong> Build strong arguments using this structure: 
-                            <strong>Claim</strong> (what you're arguing), 
-                            <strong>Data</strong> (evidence that supports it), 
-                            <strong>Warrant</strong> (why the evidence supports the claim), 
-                            <strong>Qualifier</strong> (degree of certainty—acknowledge limitations), and 
-                            <strong>Rebuttal</strong> (acknowledgment of counterarguments). 
-                            This framework helps create logical, intellectually honest arguments.
+                            <strong>How to Build a Strong Argument:</strong> Every good argument needs five parts:
+                            <strong>(1)</strong> Your main point, 
+                            <strong>(2)</strong> Evidence to back it up, 
+                            <strong>(3)</strong> Explanation of why your evidence proves your point, 
+                            <strong>(4)</strong> How sure you are (don't oversell!), and
+                            <strong>(5)</strong> What the other side might say back.
                         </div>
 
-                        <h3 class="text-yellow mb-3" style="font-size: 1.3rem; font-weight: 700;">Your Team's Main Arguments</h3>
+                        <h3 class="text-yellow mb-3" style="font-size: 1.3rem; font-weight: 700;">Your Team's Arguments</h3>
                         ${this.state.arguments.map((arg, index) => `
                             <div class="card card-blue">
                                 <div class="card-header">
-                                    <span class="card-title">ARGUMENT ${index + 1}</span>
-                                    <button class="btn-delete" data-action="delete-arg" data-index="${index}" aria-label="Delete argument ${index + 1}">
-                                        ${icons.Trash2} Delete
-                                    </button>
+                                    <span class="card-title">
+                                        ARGUMENT ${index + 1}
+                                        ${arg.isExample ? `
+                                            <span class="example-badge">
+                                                ⚠️ EXAMPLE
+                                                <button class="btn-delete-example" data-action="delete-example-arg" data-index="${index}">
+                                                    ${icons.X} Delete
+                                                </button>
+                                            </span>
+                                        ` : ''}
+                                    </span>
+                                    ${!arg.isExample ? `
+                                        <button class="btn-delete" data-action="delete-arg" data-index="${index}" aria-label="Delete argument ${index + 1}">
+                                            ${icons.Trash2} Delete
+                                        </button>
+                                    ` : ''}
                                 </div>
                                 
-                                <label class="inline" for="arg-${index}-claim">Claim (What are you arguing?)</label>
+                                <label class="inline" for="arg-${index}-claim">1. Your Main Point</label>
                                 <input 
                                     id="arg-${index}-claim"
                                     type="text" 
                                     value="${this.escapeHtml(arg.claim || '')}" 
-                                    placeholder="e.g., Nuclear power is essential for achieving New Jersey's carbon-free energy goals by 2050"
+                                    placeholder="What are you arguing?"
                                     data-bind="arguments.${index}.claim"
                                 />
                                 
-                                <label class="inline" for="arg-${index}-data" style="margin-top: 1rem;">Data/Evidence (What proves it?)</label>
+                                <label class="inline" for="arg-${index}-data" style="margin-top: 1rem;">2. Evidence (facts, stats, expert quotes)</label>
                                 <textarea 
                                     id="arg-${index}-data"
-                                    placeholder="Specific facts, statistics, expert testimony... e.g., 'According to PSEG, Salem and Hope Creek plants produce 3,478 MW of zero-carbon baseload power, preventing 10 million tons of CO₂ annually (NRC, 2024)'"
+                                    placeholder="What proves your point? Be specific with numbers and sources."
                                     data-bind="arguments.${index}.data"
                                     class="compact"
                                 >${this.escapeHtml(arg.data || '')}</textarea>
                                 
-                                <label class="inline" for="arg-${index}-warrant" style="margin-top: 1rem;">Warrant (Why does the evidence support the claim?)</label>
+                                <label class="inline" for="arg-${index}-warrant" style="margin-top: 1rem;">3. Why Does This Evidence Prove Your Point?</label>
                                 <textarea 
                                     id="arg-${index}-warrant"
-                                    placeholder="Explain the logical connection... e.g., 'Renewable sources like solar and wind are intermittent and cannot yet provide reliable baseload power at this scale. Nuclear fills the gap between fossil fuels and full renewable deployment.'"
+                                    placeholder="Connect the dots—explain the logic."
                                     data-bind="arguments.${index}.warrant"
                                     class="compact"
                                 >${this.escapeHtml(arg.warrant || '')}</textarea>
                                 
-                                <label class="inline" for="arg-${index}-qualifier" style="margin-top: 1rem;">Qualifier (How certain are you? Acknowledge limitations)</label>
+                                <label class="inline" for="arg-${index}-qualifier" style="margin-top: 1rem;">4. How Sure Are You? (Be honest!)</label>
                                 <input 
                                     id="arg-${index}-qualifier"
                                     type="text" 
                                     value="${this.escapeHtml(arg.qualifier || '')}" 
-                                    placeholder="e.g., 'Based on current grid technology...', 'In most scenarios...', 'Likely until battery storage advances...'"
+                                    placeholder='Like: "based on current tech" or "in most cases" or "until 2030"'
                                     data-bind="arguments.${index}.qualifier"
                                 />
                                 
-                                <label class="inline" for="arg-${index}-rebuttal" style="margin-top: 1rem;">Anticipated Rebuttal (What might opponents say?)</label>
+                                <label class="inline" for="arg-${index}-rebuttal" style="margin-top: 1rem;">5. What Might They Say Back?</label>
                                 <textarea 
                                     id="arg-${index}-rebuttal"
-                                    placeholder="Acknowledge counterarguments to strengthen your position... e.g., 'Opponents may argue that battery storage can replace nuclear, but current technology cannot store enough energy for multi-day periods of low renewable output.'"
+                                    placeholder="Think ahead—what will the other team argue?"
                                     data-bind="arguments.${index}.rebuttal"
                                     class="compact"
                                 >${this.escapeHtml(arg.rebuttal || '')}</textarea>
                                 
-                                <label class="inline" for="arg-${index}-source" style="margin-top: 1rem;">Source Citation</label>
+                                <label class="inline" for="arg-${index}-source" style="margin-top: 1rem;">Source (where'd you find this?)</label>
                                 <input 
                                     id="arg-${index}-source"
                                     type="text" 
@@ -1480,49 +1903,59 @@
                             </div>
                         `).join('')}
                         <button class="btn-add" data-action="add-arg" aria-label="Add new argument">
-                            ${icons.Plus} Add Argument
+                            ${icons.Plus} Add Another Argument
                         </button>
 
-                        <h3 class="text-yellow mb-3 mt-4" style="font-size: 1.3rem; font-weight: 700;">Engage with Opposing Views (Steelmanning)</h3>
+                        <h3 class="text-yellow mb-3 mt-4" style="font-size: 1.3rem; font-weight: 700;">Understanding the Other Side</h3>
                         <p class="text-gray-light mb-3" style="font-style: italic;">
-                            Strong debaters understand opposing arguments deeply. State each counterargument 
-                            <strong>in its strongest form</strong> (steelmanning), acknowledge what makes it 
-                            compelling, then explain where you disagree and why. This intellectual honesty 
-                            makes your position more credible and demonstrates sophisticated critical thinking.
+                            Don't make a straw man! State their argument fairly and try to understand why they believe it. 
+                            <strong>Then</strong> explain where you disagree and why. This makes you look fair and smart.
                         </p>
                         ${this.state.counterArgs.map((counter, index) => `
                             <div class="card card-orange">
                                 <div class="card-header">
-                                    <span class="card-title">OPPOSING VIEW ${index + 1}</span>
-                                    <button class="btn-delete" data-action="delete-counter" data-index="${index}" aria-label="Delete counter-argument ${index + 1}">
-                                        ${icons.Trash2} Delete
-                                    </button>
+                                    <span class="card-title">
+                                        COUNTER-ARGUMENT ${index + 1}
+                                        ${counter.isExample ? `
+                                            <span class="example-badge">
+                                                ⚠️ EXAMPLE
+                                                <button class="btn-delete-example" data-action="delete-example-counter" data-index="${index}">
+                                                    ${icons.X} Delete
+                                                </button>
+                                            </span>
+                                        ` : ''}
+                                    </span>
+                                    ${!counter.isExample ? `
+                                        <button class="btn-delete" data-action="delete-counter" data-index="${index}" aria-label="Delete counter-argument ${index + 1}">
+                                            ${icons.Trash2} Delete
+                                        </button>
+                                    ` : ''}
                                 </div>
-                                <label class="inline" for="counter-${index}-opposing">State the Opposing Argument in Its Strongest Form</label>
+                                <label class="inline" for="counter-${index}-opposing">What Will They Argue?</label>
                                 <input 
                                     id="counter-${index}-opposing"
                                     type="text" 
                                     value="${this.escapeHtml(counter.opposing || '')}" 
-                                    placeholder="What will the other side argue? Be generous and accurate to their position."
+                                    placeholder="State their argument fairly—no exaggerating!"
                                     data-bind="counterArgs.${index}.opposing"
                                 />
-                                <label class="inline" for="counter-${index}-understanding" style="margin-top: 1rem;">Why Might Someone Reasonably Hold This View?</label>
+                                <label class="inline" for="counter-${index}-understanding" style="margin-top: 1rem;">Why Do They Think This? (Try to see their point)</label>
                                 <textarea 
                                     id="counter-${index}-understanding"
-                                    placeholder="What evidence or reasoning makes this position compelling? What values or priorities does it reflect? Demonstrate that you understand their perspective."
+                                    placeholder="What makes their argument reasonable? What evidence do they have?"
                                     data-bind="counterArgs.${index}.understanding"
                                     class="compact"
                                 >${this.escapeHtml(counter.understanding || '')}</textarea>
-                                <label class="inline" for="counter-${index}-rebuttal" style="margin-top: 1rem;">Where You Disagree and Why</label>
+                                <label class="inline" for="counter-${index}-rebuttal" style="margin-top: 1rem;">Your Response (where you disagree and why)</label>
                                 <textarea 
                                     id="counter-${index}-rebuttal"
-                                    placeholder="Now explain your counter-evidence and reasoning. Why do you think your position is better supported, despite the strength of their argument?"
+                                    placeholder="Now explain why your evidence is stronger or why their logic doesn't work."
                                     data-bind="counterArgs.${index}.rebuttal"
                                 >${this.escapeHtml(counter.rebuttal || '')}</textarea>
                             </div>
                         `).join('')}
                         <button class="btn-add" data-action="add-counter" aria-label="Add new counter-argument">
-                            ${icons.Plus} Add Opposing View
+                            ${icons.Plus} Add Counter-Argument
                         </button>
                     </div>
                 `;
@@ -1534,22 +1967,20 @@
                 return `
                     <div class="section-content">
                         <div class="info-box info-box-purple">
-                            <strong>Source Evaluation with CRAAP Test:</strong> Evaluate each source using these criteria: 
-                            <strong>Currency</strong> (how recent?), 
-                            <strong>Relevance</strong> (how applicable?), 
-                            <strong>Authority</strong> (who's the author/publisher?), 
-                            <strong>Accuracy</strong> (is it verifiable and correct?), 
-                            <strong>Purpose</strong> (why does it exist? any bias?). 
-                            Rate each 1-5; sources averaging 4+ are generally reliable for academic use.
+                            <strong>How to Check if a Source is Good:</strong> Rate each source on 5 things: 
+                            Is it <strong>recent</strong>? Is it <strong>relevant</strong> to nuclear power? 
+                            Is the author an <strong>expert</strong>? Can you <strong>verify</strong> it? 
+                            Is it trying to <strong>inform you or sell you something</strong>?
+                            Rate each 1-5 (1=bad, 5=great). Good sources average 4+.
                         </div>
 
                         <details>
-                            <summary>Click to see citation format examples</summary>
+                            <summary>Click to see how to cite sources</summary>
                             <div>
-                                <strong>MLA 9th Edition Examples:</strong>
+                                <strong>MLA Format Examples:</strong>
                                 <ul>
                                     <li>
-                                        <strong>Journal Article:</strong><br>
+                                        <strong>Article:</strong><br>
                                         Smith, Jane. "Nuclear Safety After Fukushima." <em>Energy Policy</em>, vol. 45, 2022, pp. 12-28.
                                     </li>
                                     <li>
@@ -1557,14 +1988,14 @@
                                         Nuclear Regulatory Commission. "Operating Nuclear Power Reactors." <em>NRC.gov</em>, 15 Jan. 2024, www.nrc.gov/reactors/operating.html.
                                     </li>
                                     <li>
-                                        <strong>Database Article:</strong><br>
+                                        <strong>Database:</strong><br>
                                         Doe, John. "Climate and Nuclear Power." <em>Gale Opposing Viewpoints</em>, 2023. Accessed 1 Feb. 2024.
                                     </li>
                                 </ul>
-                                <strong style="margin-top: 1rem; display: block;">Chicago Style Examples:</strong>
+                                <strong style="margin-top: 1rem; display: block;">Chicago Format Examples:</strong>
                                 <ul>
                                     <li>
-                                        <strong>Journal Article:</strong><br>
+                                        <strong>Article:</strong><br>
                                         Smith, Jane. "Nuclear Safety After Fukushima." <em>Energy Policy</em> 45 (2022): 12-28.
                                     </li>
                                     <li>
@@ -1575,62 +2006,79 @@
                             </div>
                         </details>
 
+                        <div class="info-box info-box-green" style="margin-top: 1.5rem;">
+                            <strong>💡 How to Use Your Sources:</strong><br><br>
+                            
+                            <strong>PARAPHRASE (your own words) - use most of the time:</strong><br>
+                            ❌ BAD: "Nuclear power is safe" [no citation]<br>
+                            ✅ GOOD: "According to the NRC, nuclear plants have strong safety records compared to other energy sources (Smith, 2024)."<br><br>
+                            
+                            <strong>QUOTE DIRECTLY (exact words) - use sparingly:</strong><br>
+                            ❌ BAD: She said nuclear is safe and we should use it.<br>
+                            ✅ GOOD: The EPA director stated that nuclear plants are "among the safest energy sources per unit of electricity" (Jones, 2023).<br><br>
+                            
+                            <strong>Both need citations!</strong> Quote when the exact language is powerful or when you need precision.
+                        </div>
+
+                        <h3 class="text-purple mb-3 mt-3" style="font-size: 1.3rem; font-weight: 700;">Evidence FOR Your Position</h3>
                         ${this.state.evidence.map((item, index) => {
                             const citationType = item.citationType || 'mla';
                             return `
                             <div class="card card-purple">
                                 <div class="card-header">
-                                    <span class="card-title">EVIDENCE ${index + 1}</span>
+                                    <span class="card-title">
+                                        EVIDENCE ${index + 1}
+                                        ${item.isExample ? `
+                                            <span class="example-badge">
+                                                ⚠️ EXAMPLE
+                                                <button class="btn-delete-example" data-action="delete-example-evidence" data-index="${index}">
+                                                    ${icons.X} Delete
+                                                </button>
+                                            </span>
+                                        ` : ''}
+                                    </span>
                                     <select data-bind="evidence.${index}.citationType" style="font-size: 0.9rem; padding: 0.5rem;" aria-label="Citation format for evidence ${index + 1}">
                                         <option value="mla" ${citationType === 'mla' ? 'selected' : ''}>MLA Format</option>
                                         <option value="chicago" ${citationType === 'chicago' ? 'selected' : ''}>Chicago Format</option>
                                     </select>
-                                    <button class="btn-delete" data-action="delete-evidence" data-index="${index}" aria-label="Delete evidence ${index + 1}">
-                                        ${icons.Trash2} Delete
-                                    </button>
+                                    ${!item.isExample ? `
+                                        <button class="btn-delete" data-action="delete-evidence" data-index="${index}" aria-label="Delete evidence ${index + 1}">
+                                            ${icons.Trash2} Delete
+                                        </button>
+                                    ` : ''}
                                 </div>
                                 
-                                <label class="inline" for="evidence-${index}-claim">Claim, Fact, or Statistic</label>
+                                <label class="inline" for="evidence-${index}-claim">What Does This Source Say?</label>
                                 <input 
                                     id="evidence-${index}-claim"
                                     type="text" 
                                     value="${this.escapeHtml(item.claim || '')}" 
-                                    placeholder="e.g., Nuclear power has the lowest lifecycle carbon emissions of any reliable baseload energy source"
+                                    placeholder="The fact, stat, or quote you're using"
                                     data-bind="evidence.${index}.claim"
                                 />
                                 
-                                <label class="inline" for="evidence-${index}-source" style="margin-top: 1rem;">Source Name & Author</label>
+                                <label class="inline" for="evidence-${index}-source" style="margin-top: 1rem;">Where's It From?</label>
                                 <input 
                                     id="evidence-${index}-source"
                                     type="text" 
                                     value="${this.escapeHtml(item.source || '')}" 
-                                    placeholder="e.g., Intergovernmental Panel on Climate Change (IPCC), Special Report on Climate Change"
+                                    placeholder="Source name and author"
                                     data-bind="evidence.${index}.source"
                                 />
                                 
                                 <label class="inline" for="evidence-${index}-citation" style="margin-top: 1rem;">Full Citation</label>
-                                ${citationType === 'mla' ? `
-                                    <p class="help-text">
-                                        <strong>MLA Example:</strong> Author Last, First. "Article Title." <em>Journal Name</em>, vol. #, no. #, Year, pp. #-#. Database Name, DOI or URL.
-                                    </p>
-                                ` : `
-                                    <p class="help-text">
-                                        <strong>Chicago Example:</strong> Author Last, First. "Article Title." <em>Journal Name</em> vol #, no. # (Year): #-#. Database Name (accession number).
-                                    </p>
-                                `}
                                 <input 
                                     id="evidence-${index}-citation"
                                     type="text" 
                                     value="${this.escapeHtml(item.citation || '')}" 
-                                    placeholder="Complete ${citationType.toUpperCase()} citation..."
+                                    placeholder="Complete citation (see examples above)"
                                     data-bind="evidence.${index}.citation"
                                 />
                                 
-                                <label class="inline" style="margin-top: 1.5rem;">CRAAP Test Evaluation (1-5 scale)</label>
-                                <p class="help-text">Rate each criterion: 1=poor, 2=fair, 3=good, 4=very good, 5=excellent. Aim for sources averaging 4+ overall.</p>
+                                <label class="inline" style="margin-top: 1.5rem;">How Good Is This Source? (Rate 1-5 for each)</label>
                                 <div class="craap-grid">
                                     <div class="craap-item">
-                                        <label class="inline" for="evidence-${index}-currency">Currency</label>
+                                        <label class="inline" for="evidence-${index}-currency">Recent?</label>
                                         <input 
                                             id="evidence-${index}-currency"
                                             type="number" 
@@ -1643,7 +2091,7 @@
                                         />
                                     </div>
                                     <div class="craap-item">
-                                        <label class="inline" for="evidence-${index}-relevance">Relevance</label>
+                                        <label class="inline" for="evidence-${index}-relevance">Relevant?</label>
                                         <input 
                                             id="evidence-${index}-relevance"
                                             type="number" 
@@ -1656,7 +2104,7 @@
                                         />
                                     </div>
                                     <div class="craap-item">
-                                        <label class="inline" for="evidence-${index}-authority">Authority</label>
+                                        <label class="inline" for="evidence-${index}-authority">Expert?</label>
                                         <input 
                                             id="evidence-${index}-authority"
                                             type="number" 
@@ -1669,7 +2117,7 @@
                                         />
                                     </div>
                                     <div class="craap-item">
-                                        <label class="inline" for="evidence-${index}-accuracy">Accuracy</label>
+                                        <label class="inline" for="evidence-${index}-accuracy">Accurate?</label>
                                         <input 
                                             id="evidence-${index}-accuracy"
                                             type="number" 
@@ -1682,7 +2130,7 @@
                                         />
                                     </div>
                                     <div class="craap-item">
-                                        <label class="inline" for="evidence-${index}-purpose">Purpose</label>
+                                        <label class="inline" for="evidence-${index}-purpose">Trustworthy?</label>
                                         <input 
                                             id="evidence-${index}-purpose"
                                             type="number" 
@@ -1696,16 +2144,61 @@
                                     </div>
                                 </div>
                                 
-                                <label class="inline" for="evidence-${index}-reliability" style="margin-top: 1rem;">Source Reliability Analysis</label>
+                                <label class="inline" for="evidence-${index}-reliability" style="margin-top: 1rem;">Why Trust This Source?</label>
                                 <textarea 
                                     id="evidence-${index}-reliability"
-                                    placeholder="Why is this source reliable? Consider: author credentials, peer review status, publication reputation, potential bias, date of publication, supporting evidence..."
+                                    placeholder="Who wrote it? What makes them credible? Any bias to watch for?"
                                     data-bind="evidence.${index}.reliability"
                                 >${this.escapeHtml(item.reliability || '')}</textarea>
                             </div>
                         `}).join('')}
                         <button class="btn-add" data-action="add-evidence" aria-label="Add new evidence">
                             ${icons.Plus} Add Evidence
+                        </button>
+
+                        <h3 class="text-red mb-3 mt-4" style="font-size: 1.3rem; font-weight: 700;">Evidence AGAINST Your Position (Be Ready!)</h3>
+                        <p class="text-gray-light mb-2" style="font-style: italic;">
+                            <strong>💡 Why track evidence against you?</strong> This isn't about finding reasons your side is wrong. 
+                            It's about PREPARING so you're not surprised during the debate. Knowing their best evidence makes YOUR response stronger. 
+                            Great debaters anticipate challenges!
+                        </p>
+                        ${this.state.evidenceAgainst.map((item, index) => `
+                            <div class="card card-red">
+                                <div class="card-header">
+                                    <span class="card-title">THEIR EVIDENCE ${index + 1}</span>
+                                    <button class="btn-delete" data-action="delete-evidence-against" data-index="${index}" aria-label="Delete evidence against ${index + 1}">
+                                        ${icons.Trash2} Delete
+                                    </button>
+                                </div>
+                                
+                                <label class="inline" for="evidence-against-${index}-claim">What Will They Say?</label>
+                                <input 
+                                    id="evidence-against-${index}-claim"
+                                    type="text" 
+                                    value="${this.escapeHtml(item.claim || '')}" 
+                                    placeholder="The fact/stat that hurts your case"
+                                    data-bind="evidenceAgainst.${index}.claim"
+                                />
+                                
+                                <label class="inline" for="evidence-against-${index}-source" style="margin-top: 1rem;">Where's It From?</label>
+                                <input 
+                                    id="evidence-against-${index}-source"
+                                    type="text" 
+                                    value="${this.escapeHtml(item.source || '')}" 
+                                    placeholder="Their source"
+                                    data-bind="evidenceAgainst.${index}.source"
+                                />
+                                
+                                <label class="inline" for="evidence-against-${index}-response" style="margin-top: 1rem;">Your Response</label>
+                                <textarea 
+                                    id="evidence-against-${index}-response"
+                                    placeholder="How will you counter this? What context are they missing?"
+                                    data-bind="evidenceAgainst.${index}.response"
+                                >${this.escapeHtml(item.response || '')}</textarea>
+                            </div>
+                        `).join('')}
+                        <button class="btn-add" data-action="add-evidence-against" aria-label="Add evidence against your position">
+                            ${icons.Plus} Add Evidence They'll Use
                         </button>
                     </div>
                 `;
@@ -1717,45 +2210,44 @@
                 const criteria = [
                     { 
                         title: 'Opening Statement (3 pts)', 
-                        desc: 'Clear position statement with engaging introduction, effective preview of main arguments, and strong hook for audience attention' 
+                        desc: 'Clear position, good hook to grab attention, preview of your main arguments' 
                     },
                     { 
-                        title: 'Use of Evidence (4 pts)', 
-                        desc: 'Variety of credible, current sources; accurate data and statistics; proper citations in consistent format (MLA or Chicago)' 
+                        title: 'Evidence (4 pts)', 
+                        desc: 'Good variety of credible sources, accurate facts and numbers, proper citations' 
                     },
                     { 
-                        title: 'Argumentation (4 pts)', 
-                        desc: 'Logical flow using Toulmin model (claims, data, warrants); strong reasoning; avoids fallacies; clear connection to thesis' 
+                        title: 'Logic (4 pts)', 
+                        desc: 'Arguments make sense and connect to your point, no logical fallacies' 
                     },
                     {
-                        title: 'Intellectual Humility (4 pts)',
-                        desc: 'Acknowledges complexity and uncertainty where appropriate; qualifies claims fairly; engages charitably with opposing views using steelmanning; demonstrates nuanced understanding'
+                        title: 'Fair Thinking (4 pts)',
+                        desc: 'Shows you get it\'s complicated, doesn\'t exaggerate claims, explains the other side fairly, shows deep thinking'
                     },
                     { 
                         title: 'Cross-Examination (3 pts)', 
-                        desc: 'Insightful, challenging questions that expose weaknesses; clear, evidence-based answers; maintains composure and professionalism under pressure' 
+                        desc: 'Smart questions that challenge the other team, good answers to their questions, stays calm' 
                     },
                     { 
-                        title: 'Presentation Skills (4 pts)', 
-                        desc: 'Consistent eye contact; clear voice projection and appropriate pacing; persuasive tone; minimal reliance on notes' 
+                        title: 'Speaking Skills (4 pts)', 
+                        desc: 'Eye contact, clear voice, good pacing, persuasive, not just reading' 
                     },
                     { 
                         title: 'Teamwork (4 pts)', 
-                        desc: 'Smooth transitions between speakers; balanced participation among all members; well-coordinated strategy and task division' 
+                        desc: 'Smooth handoffs between speakers, everyone participates, well organized' 
                     },
                     { 
                         title: 'Closing Statement (4 pts)', 
-                        desc: 'Strong synthesis of key arguments; addresses opponent\'s weaknesses fairly; compelling final appeal; memorable conclusion' 
+                        desc: 'Strong summary of your points, addresses their best arguments, memorable ending' 
                     }
                 ];
 
                 return `
                     <div class="section-content">
                         <div class="info-box info-box-yellow">
-                            <strong>Assessment Criteria:</strong> Total of 30 points across eight categories. 
-                            Notice that intellectual humility is a graded criterion—your ability to acknowledge 
-                            complexity, qualify claims appropriately, and engage charitably with opposing views 
-                            demonstrates sophisticated academic thinking and is valued alongside evidence and logic.
+                            <strong>How You'll Be Graded:</strong> Total of 30 points. 
+                            Notice "Fair Thinking" is worth 4 points—being able to see complexity and understand 
+                            the other side is a big deal, not just "winning."
                         </div>
 
                         <div class="grid-2">
@@ -1775,53 +2267,40 @@
                 
                 const factCheckScenarios = [
                     {
-                        claim: '"Nuclear power produces zero emissions"',
-                        analysis: 'Nuance needed: Zero emissions during operation, but uranium mining, enrichment, and plant construction do produce CO₂. Lifecycle emissions are low (~12g CO₂/kWh) compared to fossil fuels (coal: ~820g, natural gas: ~490g) but not literally zero. This is still far lower than fossil fuels and comparable to wind power.',
+                        claim: '"Nuclear power has zero emissions"',
+                        reality: 'Not quite. Nuclear plants don\'t produce emissions while running, BUT uranium mining and plant construction do create some CO₂. The full lifecycle is about 12g CO₂ per kWh—way better than coal (820g) or gas (490g), but not literally zero.',
                         questions: [
-                            'What boundaries are used for "zero"—operational only or full lifecycle?',
-                            'How do lifecycle emissions compare to solar (~40g), wind (~11g), and hydroelectric (~24g)?',
-                            'Are we including decommissioning and waste storage in the calculation?'
+                            'Are they talking about running the plant, or the whole lifecycle?',
+                            'How does it compare to solar (40g), wind (11g), and coal (820g)?'
                         ]
                     },
                     {
-                        claim: '"Nuclear waste remains dangerous for thousands of years"',
-                        analysis: 'Accurate but needs context: High-level waste (spent fuel) remains hazardous for ~10,000 years, with radioactivity decreasing over time. However, the volume is remarkably small—a lifetime of electricity for one person produces waste the size of a soda can. Modern dry cask storage has proven safe and secure, though permanent geological disposal (like Finland\'s Onkalo) is the long-term solution.',
+                        claim: '"Nuclear waste is dangerous for thousands of years"',
+                        reality: 'True, but needs context. High-level waste stays radioactive for about 10,000 years. HOWEVER, the amount is super small—a lifetime of electricity for one person = waste the size of a soda can. And dry cask storage has worked safely for decades.',
                         questions: [
-                            'What volume of high-level waste does this specific plant produce annually?',
-                            'How does toxicity decay over time? (Most dangerous isotopes decay within 300-500 years)',
-                            'What are the actual risks of current dry cask storage vs. theoretical geological repositories?',
-                            'How does nuclear waste compare in volume and toxicity to coal ash or solar panel disposal?'
+                            'How much waste does this plant actually produce per year?',
+                            'How does it compare to coal ash or old solar panels?',
+                            'What are the actual risks of current storage?'
                         ]
                     },
                     {
-                        claim: '"Nuclear is the cheapest/most expensive energy source"',
-                        analysis: 'Highly misleading without context: Levelized Cost of Energy (LCOE) varies dramatically by region, regulatory environment, and whether comparing existing plants or new construction. Existing nuclear plants have low operating costs (~$30/MWh) making them competitive. New nuclear construction is expensive ($6,000-10,000/kW) due to complex safety systems, but operates for 60-80 years. Meanwhile, new renewables have lower capital costs but require backup/storage.',
+                        claim: '"Accidents like Chernobyl prove nuclear is unsafe"',
+                        reality: 'This needs major context. Chernobyl used a bad Soviet design that doesn\'t exist in the US. Fukushima was hit by a massive tsunami, not a normal problem. US plants have way better safety systems. Deaths from Chernobyl: ~4,000 over time. Deaths from fossil fuel air pollution: 8 million PER YEAR.',
                         questions: [
-                            'Are we comparing existing plants or new construction costs?',
-                            'Does this include decommissioning, waste management, and insurance costs?',
-                            'What about subsidies—both for nuclear (Price-Anderson Act) and renewables (tax credits)?',
-                            'How do we account for capacity factor differences? (Nuclear ~90% vs. solar ~25%, wind ~35%)',
-                            'Are storage costs included for renewables to match nuclear\'s reliability?'
+                            'What kind of reactor was it? (Very different designs)',
+                            'What actually caused the accident?',
+                            'How many people really died? (Compare to other energy sources)',
+                            'What safety improvements happened after?'
                         ]
                     },
                     {
-                        claim: '"Nuclear accidents like Chernobyl/Fukushima prove nuclear is unsafe"',
-                        analysis: 'Requires historical context: Chernobyl (1986) involved a flawed Soviet reactor design (RBMK) and safety culture that doesn\'t exist in U.S./Western plants. Fukushima (2011) was caused by an unprecedented tsunami, not routine operations, and resulted in zero radiation deaths (though evacuation stress caused ~2,000 deaths). Modern Western reactors have multiple redundant safety systems. However, the psychological and economic impacts of accidents are real and significant.',
+                        claim: '"Nuclear is too expensive" OR "Nuclear is the cheapest"',
+                        reality: 'BOTH can be true! It depends what you\'re measuring. Running an EXISTING nuclear plant is cheap (~$30/MWh operating costs). Building a BRAND NEW plant is very expensive ($6-10 billion upfront, 10-15 years). This is why people argue past each other on cost.',
                         questions: [
-                            'How many people actually died from radiation at Three Mile Island (0), Chernobyl (~50 direct, ~4,000 eventual cancer deaths per UN estimate), and Fukushima (0)?',
-                            'How do these compare to deaths from fossil fuel pollution (~8 million/year globally from air pollution)?',
-                            'What design differences exist between Soviet RBMK, 1970s light water reactors, and modern Gen III+ reactors?',
-                            'What is the statistical safety record per terawatt-hour of electricity produced?'
-                        ]
-                    },
-                    {
-                        claim: '"We can replace nuclear with 100% renewables"',
-                        analysis: 'Technically possible but practically complex: Several studies show pathways to 100% renewable grids, but they require massive energy storage (batteries, pumped hydro, hydrogen), transmission infrastructure upgrades, and demand flexibility. Nuclear provides reliable baseload power that renewables + current storage cannot yet match at scale. The question isn\'t either/or, but what combination achieves climate goals fastest and most affordably.',
-                        questions: [
-                            'What is the current state of grid-scale energy storage technology and costs?',
-                            'How much overbuild of renewable capacity is needed to ensure reliability during low-wind/low-sun periods?',
-                            'What is the land use footprint comparison? (Nuclear: ~1 sq mile per 1000 MW vs. solar: ~75 sq miles)',
-                            'What is the timeline—can renewables scale fast enough to replace nuclear AND fossil fuels by climate deadlines?'
+                            'Are they talking about an existing plant or building a new one?',
+                            'What costs are included? (Just fuel? Or construction, decommissioning, waste storage?)',
+                            'How does it compare to building new solar/wind farms PLUS battery storage?',
+                            'Over what time period? (Nuclear plants run 60-80 years)'
                         ]
                     }
                 ];
@@ -1829,17 +2308,15 @@
                 return `
                     <div class="section-content">
                         <div class="info-box info-box-yellow">
-                            <strong>Critical Thinking:</strong> Nuclear energy debates often involve claims that are technically true but lack context, 
-                            or use different assumptions to reach opposite conclusions. Always ask: 
-                            <em>"Compared to what? Over what timeframe? Using whose data? What's the baseline?"</em> 
-                            The most sophisticated arguments acknowledge complexity rather than presenting false certainty.
+                            <strong>Don't Get Fooled:</strong> A lot of nuclear claims are technically true but missing important context. 
+                            Always ask: "Compared to what? What's the full story?"
                         </div>
 
-                        <h3 class="text-yellow mb-3" style="font-size: 1.3rem; font-weight: 700;">Common Claims Requiring Context</h3>
+                        <h3 class="text-yellow mb-3" style="font-size: 1.3rem; font-weight: 700;">Claims That Need Context</h3>
                         ${factCheckScenarios.map((scenario, idx) => `
                             <div class="card card-orange" style="margin-bottom: 1.5rem;">
-                                <h4 class="card-title">Scenario ${idx + 1}: ${scenario.claim}</h4>
-                                <p class="text-white mb-2"><strong>Analysis:</strong> ${scenario.analysis}</p>
+                                <h4 class="card-title">Claim: ${scenario.claim}</h4>
+                                <p class="text-white mb-2"><strong>The Real Story:</strong> ${scenario.reality}</p>
                                 <p class="text-white"><strong>Questions to Ask:</strong></p>
                                 <ul class="text-white" style="list-style: none; padding-left: 1rem;">
                                     ${scenario.questions.map(q => `<li style="margin-bottom: 0.5rem;">• ${q}</li>`).join('')}
@@ -1847,57 +2324,36 @@
                             </div>
                         `).join('')}
 
-                        <h3 class="text-yellow mb-3 mt-4" style="font-size: 1.3rem; font-weight: 700;">General Fact-Checking Framework</h3>
+                        <h3 class="text-yellow mb-3 mt-4" style="font-size: 1.3rem; font-weight: 700;">How to Check Sources</h3>
                         <div class="grid-2">
                             <div class="card card-orange">
-                                <h4 class="card-title">Currency & Bias</h4>
+                                <h4 class="card-title">Check for Bias</h4>
                                 <ul class="text-white" style="list-style: none;">
-                                    <li class="mb-2">✓ Is the information up to date? (Nuclear tech and policy change)</li>
-                                    <li class="mb-2">✓ Does the source have financial or political stakes? (Industry vs. environmental groups)</li>
-                                    <li class="mb-2">✓ Are multiple perspectives represented, or just one viewpoint?</li>
-                                    <li class="mb-2">✓ Does the author acknowledge limitations and uncertainty?</li>
+                                    <li class="mb-2">✓ Is this recent info?</li>
+                                    <li class="mb-2">✓ Who paid for this research?</li>
+                                    <li class="mb-2">✓ Do they show both sides or just one?</li>
+                                    <li class="mb-2">✓ Do they admit when they're not sure?</li>
                                 </ul>
                             </div>
 
                             <div class="card card-orange">
-                                <h4 class="card-title">Context & Numbers</h4>
+                                <h4 class="card-title">Check the Numbers</h4>
                                 <ul class="text-white" style="list-style: none;">
-                                    <li class="mb-2">✓ Are there caveats or limitations to the data presented?</li>
-                                    <li class="mb-2">✓ Could this statistic be misleading without context?</li>
-                                    <li class="mb-2">✓ What's the baseline for comparison? (Per kWh? Per year? Per capita?)</li>
-                                    <li class="mb-2">✓ Are absolute numbers or percentages more meaningful here?</li>
-                                </ul>
-                            </div>
-
-                            <div class="card card-orange">
-                                <h4 class="card-title">Causation vs. Correlation</h4>
-                                <ul class="text-white" style="list-style: none;">
-                                    <li class="mb-2">✓ Is this correlation (things happening together) or causation (one causes the other)?</li>
-                                    <li class="mb-2">✓ Are there other explanatory factors not mentioned?</li>
-                                    <li class="mb-2">✓ What evidence directly supports the causal claim?</li>
-                                    <li class="mb-2">✓ Could the causation run in the opposite direction?</li>
-                                </ul>
-                            </div>
-
-                            <div class="card card-orange">
-                                <h4 class="card-title">Source Authority</h4>
-                                <ul class="text-white" style="list-style: none;">
-                                    <li class="mb-2">✓ Who is the author? What are their credentials and expertise?</li>
-                                    <li class="mb-2">✓ Is this peer-reviewed, fact-checked by independent sources?</li>
-                                    <li class="mb-2">✓ Can you verify this claim in multiple credible sources?</li>
-                                    <li class="mb-2">✓ Is the publication reputable? (Check impact factor for journals)</li>
+                                    <li class="mb-2">✓ What's missing from this stat?</li>
+                                    <li class="mb-2">✓ What are they comparing it to?</li>
+                                    <li class="mb-2">✓ Could this number be misleading?</li>
                                 </ul>
                             </div>
 
                             <div class="card card-orange" style="grid-column: span 2;">
-                                <h4 class="card-title">Lateral Reading (Wikipedia Test)</h4>
+                                <h4 class="card-title">Don't Just Read It—Google It!</h4>
                                 <ul class="text-white" style="list-style: none;">
-                                    <li class="mb-2">✓ Don't just read the source itself—search FOR it</li>
-                                    <li class="mb-2">✓ Open a new tab and Google the organization's name</li>
-                                    <li class="mb-2">✓ Check Wikipedia, SourceWatch, or Media Bias/Fact Check</li>
-                                    <li class="mb-2">✓ What do OTHER sources say about THIS source?</li>
-                                    <li class="mb-2">✓ Example: "Nuclear Energy Institute" → Wikipedia shows it's an industry trade group (not neutral)</li>
-                                    <li class="mb-2">✓ Example: "Union of Concerned Scientists" → Wikipedia shows it's an advocacy org focused on science policy</li>
+                                    <li class="mb-2">✓ Don't just read the article—search FOR the organization</li>
+                                    <li class="mb-2">✓ Open Wikipedia and look them up</li>
+                                    <li class="mb-2">✓ What do OTHER sources say ABOUT this source?</li>
+                                    <li class="mb-2">✓ Example: Google "Nuclear Energy Institute" → Wikipedia shows it's an industry group (they promote nuclear)</li>
+                                    <li class="mb-2">✓ Example: Google "Union of Concerned Scientists" → It's an environmental group (they critique nuclear)</li>
+                                    <li class="mb-2">✓ Neither is bad! Just know where they're coming from.</li>
                                 </ul>
                             </div>
                         </div>
@@ -1911,71 +2367,49 @@
                 const fallacies = [
                     { 
                         name: 'Ad Hominem', 
-                        desc: 'Attacking the person making the argument instead of addressing the argument itself',
-                        example: '"You can\'t trust their data on nuclear safety—they work for the nuclear industry!" (Dismisses argument based on who said it, not whether it\'s true)'
+                        desc: 'Attacking the person instead of their argument',
+                        example: '"You can\'t trust that study—the author works for a nuclear company!"'
                     },
                     { 
                         name: 'Straw Man', 
-                        desc: 'Misrepresenting an opponent\'s argument to make it easier to attack',
-                        example: '"Pro-nuclear advocates don\'t care about renewable energy at all!" (Mischaracterizes position—most support both nuclear AND renewables)'
+                        desc: 'Twisting what they said to make it easier to argue against',
+                        example: '"You support nuclear, so you don\'t care about the environment at all!"'
                     },
                     { 
-                        name: 'False Dichotomy (Either/Or)', 
-                        desc: 'Presenting only two options when more alternatives exist',
-                        example: '"We must choose between nuclear power or fossil fuels—there\'s no other way!" (Ignores renewables, efficiency, storage, etc.)'
+                        name: 'False Choice', 
+                        desc: 'Acting like there are only two options when there are more',
+                        example: '"It\'s either nuclear or we burn coal forever!"'
                     },
                     { 
                         name: 'Cherry-Picking', 
-                        desc: 'Selecting only evidence that supports your position while ignoring contradicting evidence',
-                        example: 'Citing only Chernobyl and Fukushima while ignoring decades of safe operation at hundreds of other plants'
+                        desc: 'Only showing evidence that helps you, hiding the rest',
+                        example: 'Only talking about Chernobyl, ignoring decades of safe operation elsewhere'
                     },
                     { 
                         name: 'Appeal to Emotion', 
-                        desc: 'Using emotional manipulation instead of logical reasoning',
-                        example: '"Think of the children who might be exposed to radiation!" (Uses fear without statistical risk assessment)'
+                        desc: 'Using feelings instead of facts',
+                        example: '"Think of the children exposed to radiation!" (without showing actual risk data)'
                     },
                     { 
                         name: 'Hasty Generalization', 
-                        desc: 'Drawing broad conclusions from limited or unrepresentative evidence',
-                        example: '"One study found increased cancer rates near a plant, therefore all nuclear plants cause cancer." (Ignores larger body of research)'
-                    },
-                    { 
-                        name: 'Slippery Slope', 
-                        desc: 'Arguing that one action will inevitably lead to extreme consequences without evidence',
-                        example: '"If we build nuclear plants, soon we\'ll have nuclear weapons everywhere and constant radiation leaks!" (No evidence for inevitable progression)'
-                    },
-                    { 
-                        name: 'Appeal to Authority', 
-                        desc: 'Claiming something is true solely because an authority figure says so, without examining their reasoning',
-                        example: '"A famous actor opposes nuclear power, so it must be dangerous!" (Actor may lack relevant expertise)'
-                    },
-                    {
-                        name: 'Whataboutism',
-                        desc: 'Deflecting criticism by pointing to problems elsewhere instead of addressing the argument',
-                        example: '"Why worry about nuclear waste when coal produces way more pollution?" (Both can be problems worth addressing)'
-                    },
-                    {
-                        name: 'Naturalistic Fallacy',
-                        desc: 'Assuming that what is "natural" is automatically better or safer',
-                        example: '"Solar and wind are natural, so they\'re better than artificial nuclear reactions." (Natural ≠ automatically superior; uranium is also natural)'
+                        desc: 'Making a big claim from limited evidence',
+                        example: '"One study found cancer near a plant, so all nuclear plants cause cancer!"'
                     }
                 ];
 
                 return `
                     <div class="section-content">
                         <div class="info-box info-box-yellow">
-                            <strong>Logical Fallacies:</strong> Recognize these common errors in reasoning to avoid them in your own arguments 
-                            and identify them when opponents use them. Pointing out a fallacy can be effective, but do so respectfully—
-                            explain WHY the reasoning is flawed rather than just labeling it. Remember: finding a fallacy doesn't automatically 
-                            mean the conclusion is wrong, just that this particular reasoning doesn't support it.
+                            <strong>Bad Logic to Avoid:</strong> Don't use these tricks in your arguments, 
+                            and call them out (nicely!) when the other team does.
                         </div>
 
                         <div class="grid-2">
                             ${fallacies.map(fallacy => `
                                 <div class="card card-red">
                                     <h4 class="card-title">${fallacy.name}</h4>
-                                    <p class="text-white mb-2"><strong>Definition:</strong> ${fallacy.desc}</p>
-                                    ${fallacy.example ? `<p class="text-white"><strong>Example:</strong> ${fallacy.example}</p>` : ''}
+                                    <p class="text-white mb-2"><strong>What it is:</strong> ${fallacy.desc}</p>
+                                    <p class="text-white"><strong>Example:</strong> ${fallacy.example}</p>
                                 </div>
                             `).join('')}
                         </div>
@@ -1993,20 +2427,19 @@
                 return `
                     <div class="section-content">
                         <div class="info-box info-box-blue">
-                            <strong>Debate Flow Tracking:</strong> Map how your arguments progress through each phase of the debate. 
-                            Track which arguments are extended, dropped, or successfully refuted. 
-                            This helps you maintain consistency and identify which points to emphasize in your closing.
+                            <strong>Track Your Arguments:</strong> Plan how each argument moves through the whole debate. 
+                            This helps you stay consistent and remember what to emphasize at the end.
                         </div>
 
                         <div class="flow-table">
                             <table>
                                 <thead>
                                     <tr>
-                                        <th style="color: #e8a838;">Argument</th>
-                                        <th style="color: #86efac;">Your Opening (2min)</th>
-                                        <th style="color: #f87171;">Opponent Rebuttal (2min)</th>
-                                        <th style="color: #86efac;">Your Extension (in main)</th>
-                                        <th style="color: #93c5fd;">Closing Impact</th>
+                                        <th style="color: #e8a838;">Arg #</th>
+                                        <th style="color: #86efac;">Your Opening</th>
+                                        <th style="color: #f87171;">They Say</th>
+                                        <th style="color: #86efac;">You Rebuild</th>
+                                        <th style="color: #93c5fd;">Closing</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -2018,28 +2451,28 @@
                                             <td>
                                                 <textarea 
                                                     data-bind="flow.${idx}.opening" 
-                                                    placeholder="How will you introduce this argument?"
+                                                    placeholder="How will you say this first?"
                                                     aria-label="Opening for argument ${idx + 1}"
                                                 >${this.escapeHtml(flow.opening || '')}</textarea>
                                             </td>
                                             <td>
                                                 <textarea 
                                                     data-bind="flow.${idx}.opponentRebuttal" 
-                                                    placeholder="What might opponents say against it?"
+                                                    placeholder="What might they say back?"
                                                     aria-label="Opponent rebuttal for argument ${idx + 1}"
                                                 >${this.escapeHtml(flow.opponentRebuttal || '')}</textarea>
                                             </td>
                                             <td>
                                                 <textarea 
                                                     data-bind="flow.${idx}.extension" 
-                                                    placeholder="How will you rebuild and extend?"
+                                                    placeholder="How will you respond?"
                                                     aria-label="Extension for argument ${idx + 1}"
                                                 >${this.escapeHtml(flow.extension || '')}</textarea>
                                             </td>
                                             <td>
                                                 <textarea 
                                                     data-bind="flow.${idx}.closing" 
-                                                    placeholder="Why does this win the debate?"
+                                                    placeholder="Why does this matter?"
                                                     aria-label="Closing impact for argument ${idx + 1}"
                                                 >${this.escapeHtml(flow.closing || '')}</textarea>
                                             </td>
@@ -2051,7 +2484,7 @@
                         
                         ${this.state.arguments.length === 0 ? `
                             <p class="text-gray-light mt-3" style="text-align: center; font-style: italic;">
-                                Add arguments in the "Main Arguments & Rebuttals" section to populate this flow tracker.
+                                Add arguments above to use this tracker
                             </p>
                         ` : ''}
                     </div>
@@ -2071,10 +2504,36 @@
 
                 return `
                     <div class="section-content">
+                        <div class="team-roles">
+                            <h4>🤝 TEAM ROLES (Who's doing what?)</h4>
+                            <div class="role-item">
+                                <span class="role-label">Opening Speaker:</span>
+                                <input type="text" data-bind="teamRoles.opening" value="${this.escapeHtml(this.state.teamRoles.opening)}" placeholder="Name" />
+                            </div>
+                            <div class="role-item">
+                                <span class="role-label">Main Arguments Speaker:</span>
+                                <input type="text" data-bind="teamRoles.mainArgs" value="${this.escapeHtml(this.state.teamRoles.mainArgs)}" placeholder="Name" />
+                            </div>
+                            <div class="role-item">
+                                <span class="role-label">Cross-Examination Lead:</span>
+                                <input type="text" data-bind="teamRoles.crossEx" value="${this.escapeHtml(this.state.teamRoles.crossEx)}" placeholder="Name" />
+                            </div>
+                            <div class="role-item">
+                                <span class="role-label">Closing Speaker:</span>
+                                <input type="text" data-bind="teamRoles.closing" value="${this.escapeHtml(this.state.teamRoles.closing)}" placeholder="Name" />
+                            </div>
+                            <div class="role-item">
+                                <span class="role-label">Researcher/Fact-Checker:</span>
+                                <input type="text" data-bind="teamRoles.researcher" value="${this.escapeHtml(this.state.teamRoles.researcher)}" placeholder="Name" />
+                            </div>
+                            <label class="inline" style="margin-top: 1rem;">Team Strategy Notes</label>
+                            <textarea data-bind="teamRoles.strategy" placeholder="How will you coordinate? What's your backup plan if something goes wrong?">${this.escapeHtml(this.state.teamRoles.strategy)}</textarea>
+                        </div>
+
                         <div class="timer-container">
                             <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
                                 ${icons.Clock}
-                                <h3 class="text-green" style="font-size: 1.5rem; font-weight: 700; margin: 0;">Debate Timer</h3>
+                                <h3 class="text-green" style="font-size: 1.5rem; font-weight: 700; margin: 0;">Practice Timer</h3>
                             </div>
 
                             <div class="timer-buttons">
@@ -2109,14 +2568,20 @@
                         <div class="mt-4">
                             <label for="opening-statement">Opening Statement (2 Minutes)</label>
                             <p class="text-gray-light mb-2" style="font-style: italic;">
-                                Hook the audience with a compelling opening, clearly state your position, 
-                                preview your main arguments (signpost), and establish credibility. Remember to acknowledge 
-                                the complexity of the issue to build trust.
+                                Start strong! Pick ONE opening hook, then state your position clearly.
                             </p>
+                            <div class="info-box info-box-green" style="margin-bottom: 1rem;">
+                                <strong>Opening Hook Ideas:</strong>
+                                <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                                    <li><strong>Shocking Stat:</strong> "Every hour, Salem and Hope Creek prevent 1,140 tons of CO₂..."</li>
+                                    <li><strong>Question:</strong> "What if there's an energy source safer than solar AND wind?"</li>
+                                    <li><strong>Bold Claim:</strong> "Nuclear power is our only realistic path to zero emissions by 2050."</li>
+                                </ul>
+                            </div>
                             <textarea 
                                 id="opening-statement"
                                 data-bind="openingStatement" 
-                                placeholder="Draft your opening statement here..."
+                                placeholder="Write your opening here..."
                                 aria-label="Opening statement draft"
                             >${this.escapeHtml(this.state.openingStatement)}</textarea>
                         </div>
@@ -2124,9 +2589,7 @@
                         <div class="mt-4">
                             <h3 class="text-yellow mb-3" style="font-size: 1.3rem; font-weight: 700;">Cross-Examination Questions (3 Minutes)</h3>
                             <p class="text-gray-light mb-3" style="font-style: italic;">
-                                Prepare strategic questions to challenge or clarify the opposing team's positions. 
-                                Good questions expose weaknesses, force them to defend specific claims, or get them to concede points. 
-                                Ask genuine questions, not rhetorical ones.
+                                Plan smart questions that expose holes in their arguments or force them to admit stuff.
                             </p>
                             ${this.state.questions.map((q, index) => `
                                 <div class="card card-teal">
@@ -2136,20 +2599,20 @@
                                             ${icons.Trash2} Delete
                                         </button>
                                     </div>
-                                    <label class="inline" for="question-${index}-question">Question to Ask</label>
+                                    <label class="inline" for="question-${index}-question">Question</label>
                                     <input 
                                         id="question-${index}-question"
                                         type="text" 
                                         value="${this.escapeHtml(q.question || '')}" 
-                                        placeholder="Question for opposing team..."
+                                        placeholder="What will you ask?"
                                         data-bind="questions.${index}.question"
                                     />
-                                    <label class="inline" for="question-${index}-purpose" style="margin-top: 1rem;">Purpose or Follow-Up Strategy</label>
+                                    <label class="inline" for="question-${index}-purpose" style="margin-top: 1rem;">Why are you asking this?</label>
                                     <input 
                                         id="question-${index}-purpose"
                                         type="text" 
                                         value="${this.escapeHtml(q.purpose || '')}" 
-                                        placeholder="Why are you asking this? What follow-up will you use?"
+                                        placeholder="What are you trying to get them to admit or mess up?"
                                         data-bind="questions.${index}.purpose"
                                     />
                                 </div>
@@ -2162,52 +2625,50 @@
                         <div class="mt-4">
                             <label for="closing-statement">Closing Statement (2 Minutes)</label>
                             <p class="text-gray-light mb-2" style="font-style: italic;">
-                                Synthesize your key arguments, highlight where you won exchanges, 
-                                address your strongest opponent points fairly, and make a compelling final appeal. 
-                                Acknowledge the other side's valid concerns while explaining why your position is better supported.
+                                Wrap it up strong. Remind them why you won, address their best point, memorable ending.
                             </p>
                             <textarea 
                                 id="closing-statement"
                                 data-bind="closingStatement" 
-                                placeholder="Draft your closing statement here..."
+                                placeholder="Write your closing here..."
                                 aria-label="Closing statement draft"
                             >${this.escapeHtml(this.state.closingStatement)}</textarea>
                         </div>
 
                         <div class="mt-4" style="background: linear-gradient(to right, #1e3a8a, #1e40af); border: 3px solid #3b82f6; border-radius: 0.75rem; padding: 2rem;">
-                            <h3 class="text-yellow mb-3" style="font-size: 1.3rem; font-weight: 700;">Final Preparation Checklist</h3>
+                            <h3 class="text-yellow mb-3" style="font-size: 1.3rem; font-weight: 700;">Before Debate Day</h3>
                             <ul class="text-white" style="list-style: none; font-size: 1.05rem; line-height: 1.8;">
                                 <li style="display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 0.75rem;">
                                     <span class="text-green" style="font-weight: 700;">✓</span>
-                                    <span>Review all evidence sources for credibility (CRAAP test scores 4+) and relevance to your arguments</span>
+                                    <span>Check all your sources are good (most should rate 4+ on your checklist)</span>
                                 </li>
                                 <li style="display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 0.75rem;">
                                     <span class="text-green" style="font-weight: 700;">✓</span>
-                                    <span>Practice delivery with your team, focusing on clarity, confidence, and staying within time limits</span>
+                                    <span>Practice out loud with your team—seriously, say it out loud!</span>
                                 </li>
                                 <li style="display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 0.75rem;">
                                     <span class="text-green" style="font-weight: 700;">✓</span>
-                                    <span>Verify you've steelmanned opposing arguments—can you state their case as well as they would?</span>
+                                    <span>Make sure you understand the other side's arguments (not just yours)</span>
                                 </li>
                                 <li style="display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 0.75rem;">
                                     <span class="text-green" style="font-weight: 700;">✓</span>
-                                    <span>Check that you've qualified claims appropriately—avoid absolute language where uncertainty exists</span>
+                                    <span>Time yourselves—2 minutes goes faster than you think!</span>
                                 </li>
                                 <li style="display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 0.75rem;">
                                     <span class="text-green" style="font-weight: 700;">✓</span>
-                                    <span>Ensure balanced participation among all team members with clear role assignments</span>
+                                    <span>Split up who says what—everyone should participate</span>
                                 </li>
                                 <li style="display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 0.75rem;">
                                     <span class="text-green" style="font-weight: 700;">✓</span>
-                                    <span>Have citations ready to reference during the debate (organized note cards or digital references)</span>
+                                    <span>Bring note cards with your sources (you can reference them!)</span>
                                 </li>
                                 <li style="display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 0.75rem;">
                                     <span class="text-green" style="font-weight: 700;">✓</span>
-                                    <span>Run through the debate flow tracker to ensure consistency across all phases</span>
+                                    <span>Print your cheat sheet for quick reference</span>
                                 </li>
                                 <li style="display: flex; align-items: flex-start; gap: 0.75rem;">
                                     <span class="text-green" style="font-weight: 700;">✓</span>
-                                    <span>Export your data as backup and print key sections for reference during the debate</span>
+                                    <span>If you don't know an answer in cross-ex, it's OK to say "I'd need to check my notes on that"</span>
                                 </li>
                             </ul>
                         </div>
@@ -2224,15 +2685,15 @@
 
             render() {
                 const sections = [
-                    { key: 'research', icon: icons.BookOpen, title: 'Research Components', renderer: () => this.renderResearchSection() },
-                    { key: 'searchStrategy', icon: icons.BookOpen, title: 'Search Strategy & Terminology', renderer: () => this.renderSearchStrategy() },
-                    { key: 'arguments', icon: icons.Lightbulb, title: 'Arguments & Steelmanning (Toulmin Model)', renderer: () => this.renderArguments() },
-                    { key: 'evidence', icon: icons.FileText, title: 'Evidence & Source Tracker (CRAAP Test)', renderer: () => this.renderEvidence() },
-                    { key: 'rubric', icon: icons.Award, title: 'Debate Rubric Reference', renderer: () => this.renderRubric() },
-                    { key: 'factCheck', icon: icons.AlertTriangle, title: 'Fact-Checking & Lateral Reading', renderer: () => this.renderFactCheck() },
-                    { key: 'fallacies', icon: icons.AlertTriangle, title: 'Logical Fallacy Detector', renderer: () => this.renderFallacies() },
-                    { key: 'debateFlow', icon: icons.Award, title: 'Debate Flow Tracker', renderer: () => this.renderDebateFlow() },
-                    { key: 'prep', icon: icons.Clock, title: 'Debate Day Preparation', renderer: () => this.renderPrep() }
+                    { key: 'research', icon: icons.BookOpen, title: 'Research Your Topic', renderer: () => this.renderResearchSection() },
+                    { key: 'searchStrategy', icon: icons.BookOpen, title: 'Search Tips', renderer: () => this.renderSearchStrategy() },
+                    { key: 'arguments', icon: icons.Lightbulb, title: 'Build Your Arguments', renderer: () => this.renderArguments() },
+                    { key: 'evidence', icon: icons.FileText, title: 'Track Your Evidence', renderer: () => this.renderEvidence() },
+                    { key: 'rubric', icon: icons.Award, title: 'How You\'ll Be Graded', renderer: () => this.renderRubric() },
+                    { key: 'factCheck', icon: icons.AlertTriangle, title: 'Fact-Check Everything', renderer: () => this.renderFactCheck() },
+                    { key: 'fallacies', icon: icons.AlertTriangle, title: 'Avoid Bad Logic', renderer: () => this.renderFallacies() },
+                    { key: 'debateFlow', icon: icons.Award, title: 'Track Arguments Through Debate', renderer: () => this.renderDebateFlow() },
+                    { key: 'prep', icon: icons.Clock, title: 'Debate Day Prep', renderer: () => this.renderPrep() }
                 ];
 
                 this.shadowRoot.innerHTML = `
@@ -2243,6 +2704,8 @@
                         <div class="max-w-6xl">
                             ${this.renderHeader()}
                             <div id="main-content" tabindex="-1">
+                                ${this.renderGettingStarted()}
+                                ${this.renderProgress()}
                                 ${this.renderControls()}
                                 
                                 ${sections.map(section => `
@@ -2322,11 +2785,11 @@
                         case 'print':
                             window.print();
                             break;
-                        case 'export':
-                            this.exportData();
+                        case 'print-cheat':
+                            this.printCheatSheet();
                             break;
-                        case 'import':
-                            this.importData();
+                        case 'dismiss-guide':
+                            this.dismissGettingStarted();
                             break;
                         case 'add-arg':
                             this.state.arguments.push({ 
@@ -2341,6 +2804,7 @@
                             this.render();
                             break;
                         case 'delete-arg':
+                        case 'delete-example-arg':
                             this.state.arguments.splice(index, 1);
                             this.state.flow.splice(index, 1);
                             this.saveState();
@@ -2356,6 +2820,7 @@
                             this.render();
                             break;
                         case 'delete-counter':
+                        case 'delete-example-counter':
                             this.state.counterArgs.splice(index, 1);
                             this.saveState();
                             this.render();
@@ -2377,7 +2842,22 @@
                             this.render();
                             break;
                         case 'delete-evidence':
+                        case 'delete-example-evidence':
                             this.state.evidence.splice(index, 1);
+                            this.saveState();
+                            this.render();
+                            break;
+                        case 'add-evidence-against':
+                            this.state.evidenceAgainst.push({
+                                claim: '',
+                                source: '',
+                                response: ''
+                            });
+                            this.saveState();
+                            this.render();
+                            break;
+                        case 'delete-evidence-against':
+                            this.state.evidenceAgainst.splice(index, 1);
                             this.saveState();
                             this.render();
                             break;
