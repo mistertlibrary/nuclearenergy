@@ -503,6 +503,18 @@
             .info-box strong {
                 font-weight: 700;
             }
+
+            .source-link {
+                color: #1e40af;
+                text-decoration: none;
+                font-weight: 600;
+                border-bottom: 1px dotted #1e40af;
+            }
+
+            .source-link:hover {
+                color: #2563eb;
+                border-bottom: 1px solid #2563eb;
+            }
             
             .card {
                 background: #0f172a;
@@ -1669,7 +1681,8 @@
                         label: 'Nuclear Power Basics', 
                         bullets: [
                             'What is nuclear fission? (How does splitting atoms create energy?)',
-                            'How does a reactor turn that energy into electricity?',
+                            'Most natural uranium is U-238, which can\'t sustain fission. Power plants need <strong>enriched uranium</strong> with higher U-235 (the fissile isotope). This is why uranium must be enriched from ~0.7% U-235 to 3-5% U-235. <a href="https://www.nrc.gov/materials/fuel-cycle-fac/ur-enrichment.html" target="_blank" rel="noopener noreferrer" class="source-link">Source: NRC</a>',
+                            'How does a reactor turn that energy into electricity? Importantly, water acts as both a <strong>coolant</strong> (removing heat) and a <strong>moderator</strong> (slowing neutrons to sustain the chain reaction). <a href="https://www.energy.gov/ne/articles/nuclear-101-how-does-nuclear-reactor-work" target="_blank" rel="noopener noreferrer" class="source-link">Source: DOE</a>',
                             '⚠️ NOTE: Power plants use FISSION (splitting atoms). FUSION (combining atoms, like the sun) is still experimental. If you see "fusion breakthrough" news, that\'s different tech.',
                             'List 3 reasons people SUPPORT nuclear power',
                             'List 3 reasons people OPPOSE nuclear power'
@@ -1684,7 +1697,7 @@
                             'What kind of reactor does it use? (PWR = Pressurized Water Reactor, BWR = Boiling Water Reactor)',
                             'Any major events in its history? (upgrades, problems, close calls?)',
                             'Compare: Why did Indian Point (NY) close in 2020-2021 (Unit 2 April 2020, Unit 3 April 2021) while your plant stayed open?',
-                            '✓ VERIFY: For most current status and license dates, check NRC database at www.nrc.gov/reactors/operating/list-power-reactor-units.html'
+                            '✓ VERIFY: For most current status and license dates, check <a href="https://www.nrc.gov/reactors/operating/list-power-reactor-units.html" target="_blank" rel="noopener noreferrer" class="source-link">NRC database</a>'
                         ] : ['Select a plant above to see research questions']
                     },
                     { 
@@ -1693,7 +1706,7 @@
                         bullets: [
                             'What type of reactor does it use?',
                             'How much electricity does it produce?',
-                            'What is its capacity factor? (% of time running at full power—nuclear is usually around 90%)',
+                            'What is its capacity factor (% of time running at full power)? Nuclear is usually around 90%. <a href="https://www.eia.gov/electricity/monthly/epm_table_grapher.php?t=epmt_6_07_a" target="_blank" rel="noopener noreferrer" class="source-link">Source: EIA</a>',
                             'What safety systems does it have?',
                             'What happens in an emergency?'
                         ]
@@ -1703,9 +1716,10 @@
                         label: 'Environment & Health',
                         bullets: [
                             'How does it affect local water? (temperature, usage)',
-                            'Where does the nuclear waste go? How is it stored?',
+                            'Where does the nuclear waste go? How is it stored? Note: High-level waste is currently stored on-site in dry cask storage because deep geological repositories (like Yucca Mountain) remain politically stalled. <a href="https://www.nrc.gov/waste/spent-fuel-storage.html" target="_blank" rel="noopener noreferrer" class="source-link">Source: NRC</a>',
                             'Have there been any safety problems or violations?',
-                            'How does it compare to coal/gas/solar/wind for carbon emissions?',
+                            'How does it compare to coal/gas/solar/wind for lifecycle carbon emissions? Nuclear: ~12g CO₂/kWh, Coal: ~820g, Gas: ~490g, Solar: ~40g, Wind: ~11g. <a href="https://www.ipcc.ch/report/ar6/wg3/" target="_blank" rel="noopener noreferrer" class="source-link">Source: IPCC AR6</a>',
+                            'Nuclear has one of the lowest death rates per unit of energy: 0.07 deaths per terawatt-hour (TWh), comparable to wind and solar. Coal causes ~25 deaths/TWh. <a href="https://ourworldindata.org/safest-sources-of-energy" target="_blank" rel="noopener noreferrer" class="source-link">Source: Our World in Data</a>',
                             'How much land does it use compared to other energy sources?'
                         ]
                     },
@@ -1715,7 +1729,7 @@
                         bullets: [
                             'How many jobs does it provide?',
                             'How much does it cost to run? (You\'ll see different cost numbers—check if they mean running an EXISTING plant like yours OR building a brand NEW one from scratch. That\'s why people disagree!)',
-                            'Does it get Zero Emission Credits (ZECs)—money from NY or NJ to keep running because it doesn\'t emit carbon? How much?',
+                            'Does it get Zero Emission Credits (ZECs)—money from NY or NJ to keep running because it doesn\'t emit carbon? How much? <a href="https://www.nyserda.ny.gov/zec" target="_blank" rel="noopener noreferrer" class="source-link">NY ZECs</a>',
                             'What does the local community think about it?',
                             'What if it closed? (jobs, electricity prices, replacement power)'
                         ]
@@ -1725,10 +1739,10 @@
                         label: 'Future Plans',
                         bullets: [
                             'Is it staying open or closing? When does its license expire?',
-                            'Are there plans for new nuclear plants in NY/NJ?',
+                            'Are there plans for new nuclear plants in NY/NJ? Note: Small Modular Reactors (SMRs) are factory-built, smaller reactors designed to address high capital costs of traditional large reactors. <a href="https://www.energy.gov/ne/advanced-small-modular-reactors-smrs" target="_blank" rel="noopener noreferrer" class="source-link">Source: DOE</a>',
                             'What are NY and NJ climate goals? Does nuclear fit in?',
                             'Could renewable energy replace this plant? When?',
-                            'What happens if it closes? (Decommissioning takes 10-15 years, costs $2-3 billion—see Indian Point example)'
+                            'What happens if it closes? Decommissioning takes 10-15 years and costs $2-3 billion (see Indian Point: ~$2.3B via Holtec contract). <a href="https://www.eia.gov/todayinenergy/detail.php?id=40212" target="_blank" rel="noopener noreferrer" class="source-link">Source: EIA</a>'
                         ]
                     }
                 ];
@@ -1744,7 +1758,7 @@
 
                         <div class="info-box info-box-yellow">
                             <strong>Can't Access Databases from Home?</strong> Use them at school or public library. 
-                            Free government sources work without login: NRC.gov, EPA.gov, Energy.gov, EIA.gov. 
+                            Free government sources work without login: <a href="https://www.nrc.gov" target="_blank" rel="noopener noreferrer" class="source-link">NRC.gov</a>, <a href="https://www.epa.gov" target="_blank" rel="noopener noreferrer" class="source-link">EPA.gov</a>, <a href="https://www.energy.gov" target="_blank" rel="noopener noreferrer" class="source-link">Energy.gov</a>, <a href="https://www.eia.gov" target="_blank" rel="noopener noreferrer" class="source-link">EIA.gov</a>. 
                             Ask your librarian about remote access options.
                         </div>
 
@@ -2283,7 +2297,7 @@
                         questions: [
                             'Are they talking about running the plant, or the whole lifecycle?',
                             'How does it compare to solar (40g), wind (11g), and coal (820g)?',
-                            'Source note: These numbers are from IPCC lifecycle assessments and may vary slightly by study.'
+                            'Source note: These numbers are from <a href="https://www.ipcc.ch/report/ar6/wg3/" target="_blank" rel="noopener noreferrer" class="source-link">IPCC lifecycle assessments</a> and may vary slightly by study.'
                         ]
                     },
                     {
@@ -2292,16 +2306,16 @@
                         questions: [
                             'How much waste does this plant actually produce per year?',
                             'How does it compare to coal ash or old solar panels?',
-                            'What are the actual risks of current storage?'
+                            'What are the actual risks of current storage? (See <a href="https://www.nrc.gov/waste/spent-fuel-storage.html" target="_blank" rel="noopener noreferrer" class="source-link">NRC on dry cask storage</a>)'
                         ]
                     },
                     {
                         claim: '"Accidents like Chernobyl prove nuclear is unsafe"',
-                        reality: 'This needs major context. Chernobyl used a bad Soviet design that doesn\'t exist in the US. Fukushima was hit by a massive tsunami, not a normal problem. US plants have way better safety systems. Deaths from Chernobyl: WHO/UN estimate ~4,000 over time (though other estimates range higher—this is scientifically debated). Deaths from fossil fuel air pollution: 8 million PER YEAR (WHO estimate).',
+                        reality: 'This needs major context. Chernobyl used a bad Soviet design that doesn\'t exist in the US. Fukushima was hit by a massive tsunami, not a normal problem. US plants have way better safety systems. Deaths from Chernobyl: WHO/UN estimate ~4,000 over time (though other estimates range higher—this is scientifically debated). Deaths from fossil fuel air pollution: 8 million PER YEAR (WHO estimate). Nuclear has 0.07 deaths per TWh vs coal\'s 25 deaths per TWh.',
                         questions: [
                             'What kind of reactor was it? (Very different designs)',
                             'What actually caused the accident?',
-                            'How many people really died? (Compare to other energy sources)',
+                            'How many people really died? (Compare to <a href="https://ourworldindata.org/safest-sources-of-energy" target="_blank" rel="noopener noreferrer" class="source-link">deaths per TWh for all energy sources</a>)',
                             'What safety improvements happened after?'
                         ]
                     },
@@ -2313,7 +2327,7 @@
                             'What costs are included? (Just fuel? Or construction, decommissioning, waste storage?)',
                             'How does it compare to building new solar/wind farms PLUS battery storage?',
                             'Over what time period? (Nuclear plants run 60-80 years)',
-                            'Vogtle reality: The recent Vogtle 3&4 project in Georgia took over a decade and cost $35+ billion (way over budget).'
+                            'Vogtle reality: The recent Vogtle 3&4 project in Georgia took over a decade and cost $35+ billion (way over budget). <a href="https://www.eia.gov/todayinenergy/detail.php?id=52018" target="_blank" rel="noopener noreferrer" class="source-link">Source: EIA</a>'
                         ]
                     }
                 ];
