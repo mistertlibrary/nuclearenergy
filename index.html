@@ -961,7 +961,193 @@
                 opacity: 1;
             }
             
-            @media print {
+
+            /* ── QUICK-START PANEL ── */
+            .quick-start-panel {
+                background: #0d2818;
+                border: 2px solid #22c55e;
+                border-radius: 0.6rem;
+                padding: 1.5rem 1.75rem;
+                margin-bottom: 1.75rem;
+            }
+            .quick-start-panel h4 {
+                font-size: 0.72rem;
+                text-transform: uppercase;
+                letter-spacing: 0.12em;
+                font-weight: 700;
+                color: #4ade80;
+                margin-bottom: 0.35rem;
+            }
+            .quick-start-intro {
+                font-size: 0.88rem;
+                color: #86efac;
+                margin-bottom: 1.1rem;
+                line-height: 1.55;
+            }
+            .quick-start-steps { list-style: none; }
+            .quick-start-step {
+                display: grid;
+                grid-template-columns: 28px 1fr auto;
+                align-items: baseline;
+                gap: 0.75rem;
+                padding: 0.55rem 0;
+                border-bottom: 1px solid rgba(34,197,94,0.12);
+            }
+            .quick-start-step:last-child { border-bottom: none; }
+            .quick-start-num {
+                width: 22px; height: 22px;
+                background: rgba(74,222,128,0.15);
+                color: #4ade80;
+                border-radius: 50%;
+                display: flex; align-items: center; justify-content: center;
+                font-weight: 700; font-size: 0.72rem;
+                flex-shrink: 0;
+            }
+            .quick-start-link {
+                color: #d1fae5;
+                text-decoration: none;
+                font-size: 0.9rem;
+                font-weight: 500;
+                line-height: 1.4;
+            }
+            .quick-start-link:hover { color: #ffffff; text-decoration: underline; }
+            .quick-start-meta {
+                font-size: 0.75rem;
+                color: #4ade80;
+                white-space: nowrap;
+                opacity: 0.75;
+                font-variant-numeric: tabular-nums;
+            }
+
+            /* ── TIER TOOLTIP on resource links ── */
+            .res-link-wrap {
+                position: relative;
+                display: inline-flex;
+                align-items: center;
+                gap: 0;
+            }
+            .tier-dot {
+                display: inline-block;
+                width: 7px; height: 7px;
+                border-radius: 50%;
+                margin-left: 6px;
+                flex-shrink: 0;
+                cursor: default;
+                position: relative;
+                top: -1px;
+            }
+            .tier-dot.start   { background: #4ade80; }
+            .tier-dot.deeper  { background: #a78bfa; }
+            .tier-dot.video   { background: #fbbf24; }
+            .tier-dot::after {
+                content: attr(data-tip);
+                position: absolute;
+                bottom: calc(100% + 6px);
+                left: 50%;
+                transform: translateX(-50%);
+                background: #1e293b;
+                color: #e2e8f0;
+                font-size: 0.72rem;
+                font-weight: 500;
+                white-space: nowrap;
+                padding: 0.3rem 0.6rem;
+                border-radius: 4px;
+                pointer-events: none;
+                opacity: 0;
+                transition: opacity 0.15s;
+                z-index: 20;
+                border: 1px solid #334155;
+            }
+            .tier-dot:hover::after { opacity: 1; }
+
+            /* ── RESOURCE LIST legend line ── */
+            .tier-legend {
+                display: flex;
+                align-items: center;
+                gap: 1.2rem;
+                margin-bottom: 1rem;
+                font-size: 0.78rem;
+                color: #94a3b8;
+            }
+            .tier-legend-item {
+                display: flex; align-items: center; gap: 0.35rem;
+            }
+
+            /* ── GUIDING QUESTION BOX ── */
+            .guiding-q-box {
+                border-left: 3px solid #3b82f6;
+                background: transparent;
+                padding: 0.6rem 0 0.6rem 1rem;
+                margin-bottom: 0.75rem;
+            }
+            .guiding-q-label {
+                font-size: 0.68rem;
+                text-transform: uppercase;
+                letter-spacing: 0.1em;
+                font-weight: 700;
+                color: #60a5fa;
+                margin-bottom: 0.3rem;
+            }
+            .guiding-q-text {
+                font-size: 0.88rem;
+                color: #cbd5e1;
+                line-height: 1.55;
+            }
+
+            /* ── ARGUMENT STARTER PANEL ── */
+            .starter-panel {
+                background: #0f1e35;
+                border: 1px solid #334155;
+                border-left: 3px solid #3b82f6;
+                border-radius: 0 0.5rem 0.5rem 0;
+                padding: 1.1rem 1.4rem;
+                margin-bottom: 1.75rem;
+            }
+            .starter-panel-head {
+                font-size: 0.72rem;
+                text-transform: uppercase;
+                letter-spacing: 0.1em;
+                font-weight: 700;
+                color: #60a5fa;
+                margin-bottom: 0.35rem;
+            }
+            .starter-panel-sub {
+                font-size: 0.83rem;
+                color: #94a3b8;
+                margin-bottom: 1rem;
+                line-height: 1.5;
+            }
+            .starter-side-label {
+                font-size: 0.68rem;
+                font-weight: 700;
+                text-transform: uppercase;
+                letter-spacing: 0.1em;
+                margin-bottom: 0.5rem;
+                margin-top: 0.75rem;
+            }
+            .starter-side-label.pro  { color: #4ade80; }
+            .starter-side-label.con  { color: #f87171; }
+            .starter-claim {
+                display: block;
+                padding: 0.6rem 0.9rem;
+                margin-bottom: 0.4rem;
+                background: rgba(255,255,255,0.03);
+                border: 1px solid #1e3a5f;
+                border-radius: 0.35rem;
+                font-size: 0.85rem;
+                color: #94a3b8;
+                line-height: 1.55;
+                font-style: italic;
+            }
+            .starter-hint {
+                font-size: 0.75rem;
+                color: #475569;
+                font-style: normal;
+                display: block;
+                margin-top: 0.2rem;
+            }
+
+                        @media print {
                 .container { 
                     background: white; 
                     padding: 0.5rem; 
@@ -1227,17 +1413,30 @@
                 
                 // CORRECTED Research resources with EIA and IPCC added
                 this.researchResources = [
+                    {
+                        category: 'Start Here: Short Reads & Videos',
+                        authorityLevel: 'Begin Here',
+                        evaluationNote: 'New to the topic? Start with these. Each one is short, clear, and from a reliable source. Together they take about 20 minutes and give you a solid foundation.',
+                        startHere: true,
+                        items: [
+                            { name: 'TED-Ed: How do nuclear power plants work?', url: 'https://ed.ted.com/lessons/what-are-the-challenges-of-nuclear-power-m-v-ramana-and-sajan-saini', tier: 'video', readingTime: '5 min' },
+                            { name: 'Kurzgesagt: Nuclear Energy Explained — How Does It Work?', url: 'https://www.youtube.com/watch?v=rcOFV4y5z8c', tier: 'video', readingTime: '7 min' },
+                            { name: 'EIA: Nuclear Energy Explained', url: 'https://www.eia.gov/energyexplained/nuclear/', tier: 'start', readingTime: '~8 min read' },
+                            { name: 'Nuclear Power Pros and Cons, url: 'https://www.britannica.com/procon/nuclear-power-debate', tier: 'start', readingTime: '~7 min read' },
+                            { name: 'MIT Climate Portal: Nuclear Power', url: 'https://climate.mit.edu/explainers/nuclear-energy', tier: 'start', readingTime: '~10 min read' }
+                        ]
+                    },
                     { 
                         category: 'Nuclear Power Plant Information', 
                         authorityLevel: 'Government Sources',
                         evaluationNote: 'Official government data on safety, operations, and regulations. Very reliable for facts, but won\'t tell you what policies should be.',
                         items: [
-                            { name: 'U.S. Nuclear Regulatory Commission', url: 'https://www.nrc.gov' },
-                            { name: 'NRC Plant Database', url: 'https://www.nrc.gov/reactors/operating/list-power-reactor-units.html' },
-                            { name: 'Department of Energy', url: 'https://www.energy.gov/ne/nuclear-energy' },
-                            { name: 'U.S. Energy Information Administration (EIA)', url: 'https://www.eia.gov' },
-                            { name: 'NY State Energy (NYSERDA)', url: 'https://www.nyserda.ny.gov' },
-                            { name: 'NJ Public Utilities', url: 'https://www.nj.gov/bpu/' }
+                            { name: 'U.S. Nuclear Regulatory Commission', url: 'https://www.nrc.gov', tier: 'start', readingTime: 'Reference site' },
+                            { name: 'NRC Plant Database (look up your specific plant here)', url: 'https://www.nrc.gov/reactors/operating/list-power-reactor-units.html', tier: 'start', readingTime: 'Database' },
+                            { name: 'Department of Energy: Nuclear 101', url: 'https://www.energy.gov/ne/articles/nuclear-101-how-does-nuclear-reactor-work', tier: 'start', readingTime: '~5 min read' },
+                            { name: 'U.S. Energy Information Administration (EIA)', url: 'https://www.eia.gov', tier: 'start', readingTime: 'Data source' },
+                            { name: 'NY State Energy (NYSERDA)', url: 'https://www.nyserda.ny.gov', tier: 'deeper', readingTime: 'Reference site' },
+                            { name: 'NJ Public Utilities', url: 'https://www.nj.gov/bpu/', tier: 'deeper', readingTime: 'Reference site' }
                         ]
                     },
                     { 
@@ -1245,10 +1444,10 @@
                         authorityLevel: 'Curated Collections',
                         evaluationNote: 'These databases give you pro AND con perspectives. Great starting point, but always track down original sources.',
                         items: [
-                            { name: 'Gale in Context: Global Issues', url: 'https://link.gale.com/apps/GIC?u=nort87507' },
-                            { name: 'Gale in Context: Opposing Viewpoints', url: 'https://link.gale.com/apps/OVIC?u=nort87507' },
-                            { name: 'Infobase Issues & Controversies', url: 'https://online.infobaselearning.com/Direct.aspx?pid=WE57&aid=17282' },
-                            { name: 'EBSCOhost Points of View', url: 'https://research.ebsco.com/c/t3bsam?db=pwh' }
+                            { name: 'Gale in Context: Opposing Viewpoints', url: 'https://link.gale.com/apps/OVIC?u=nort87507', tier: 'start', readingTime: 'Search for articles' },
+                            { name: 'Gale in Context: Global Issues', url: 'https://link.gale.com/apps/GIC?u=nort87507', tier: 'start', readingTime: 'Search for articles' },
+                            { name: 'Infobase Issues & Controversies', url: 'https://online.infobaselearning.com/Direct.aspx?pid=WE57&aid=17282', tier: 'deeper', readingTime: 'Search for articles' },
+                            { name: 'EBSCOhost Points of View', url: 'https://research.ebsco.com/c/t3bsam?db=pwh', tier: 'deeper', readingTime: 'Search for articles' }
                         ]
                     },
                     { 
@@ -1256,9 +1455,9 @@
                         authorityLevel: 'Science & Tech',
                         evaluationNote: 'Good for understanding how nuclear energy actually works. Look for recent articles.',
                         items: [
-                            { name: 'Grolier ScienceFlix', url: 'http://scienceflix.digital.scholastic.com/' },
-                            { name: 'Infobase Science Online', url: 'https://online.infobaselearning.com/Direct.aspx?pid=WE40&aid=17282' },
-                            { name: 'EBSCOhost Science Reference', url: 'https://research.ebsco.com/c/t3bsam?db=sch' }
+                            { name: 'Grolier ScienceFlix', url: 'http://scienceflix.digital.scholastic.com/', tier: 'start', readingTime: 'Videos + articles' },
+                            { name: 'Infobase Science Online', url: 'https://online.infobaselearning.com/Direct.aspx?pid=WE40&aid=17282', tier: 'deeper', readingTime: 'Search for articles' },
+                            { name: 'EBSCOhost Science Reference', url: 'https://research.ebsco.com/c/t3bsam?db=sch', tier: 'deeper', readingTime: 'Search for articles' }
                         ]
                     },
                     { 
@@ -1266,8 +1465,9 @@
                         authorityLevel: 'Scientific Research',
                         evaluationNote: 'International climate science and energy data. The IPCC is the gold standard for climate information.',
                         items: [
-                            { name: 'IPCC (Intergovernmental Panel on Climate Change)', url: 'https://www.ipcc.ch' },
-                            { name: 'EIA Energy Data & Analysis', url: 'https://www.eia.gov/nuclear/' }
+                            { name: 'EIA Energy Data & Analysis (nuclear section)', url: 'https://www.eia.gov/nuclear/', tier: 'start', readingTime: 'Data source' },
+                            { name: 'Our World in Data: Safest Sources of Energy', url: 'https://ourworldindata.org/safest-sources-of-energy', tier: 'start', readingTime: '~8 min read' },
+                            { name: 'IPCC (Intergovernmental Panel on Climate Change)', url: 'https://www.ipcc.ch', tier: 'deeper', readingTime: 'Technical reports' }
                         ]
                     },
                     { 
@@ -1275,21 +1475,21 @@
                         authorityLevel: 'Current Events',
                         evaluationNote: 'Useful for ongoing stories and developing a basic understanding, but news articles are not scientific research. Always check their sources!',
                         items: [
-                            { name: 'Britannica School', url: 'http://school.eb.com/' },
-                            { name: 'New York Times', url: 'https://www.nytimes.com' },
-                            { name: 'Wall Street Journal', url: 'https://wsj.com' }
+                            { name: 'Britannica: The Nuclear Power Debate (Pro/Con)', url: 'https://www.britannica.com/procon/nuclear-power-debate', tier: 'start', readingTime: '~10 min read' },
+                            { name: 'New York Times', url: 'https://www.nytimes.com', tier: 'deeper', readingTime: 'Search for articles' },
+                            { name: 'Wall Street Journal', url: 'https://wsj.com', tier: 'deeper', readingTime: 'Search for articles' }
                         ]
                     },
                     { 
                         category: 'Different Perspectives', 
-                        authorityLevel: 'Various Groups',
-                        evaluationNote: 'These represent different viewpoints. The key: know who\'s behind each source and what their angle is.',
+                        authorityLevel: 'Know Your Sources',
+                        evaluationNote: 'These groups have different viewpoints and funding. The key: know who\'s behind each source and what their angle is before you use them.',
                         items: [
-                            { name: 'International Atomic Energy Agency', url: 'https://www.iaea.org' },
-                            { name: 'Union of Concerned Scientists', url: 'https://www.ucsusa.org/nuclear-power' },
-                            { name: 'Nuclear Energy Institute (industry group)', url: 'https://www.nei.org' },
-                            { name: 'World Nuclear Association', url: 'https://www.world-nuclear.org' },
-                            { name: 'EPA Nuclear Info', url: 'https://www.epa.gov/radtown/nuclear-power-plants' }
+                            { name: 'International Atomic Energy Agency', url: 'https://www.iaea.org', tier: 'start', readingTime: 'Reference site' },
+                            { name: 'Union of Concerned Scientists (skeptical of nuclear)', url: 'https://www.ucsusa.org/nuclear-power', tier: 'start', readingTime: 'Articles + reports' },
+                            { name: 'Nuclear Energy Institute (industry group — pro-nuclear)', url: 'https://www.nei.org', tier: 'start', readingTime: 'Articles + data' },
+                            { name: 'EPA Nuclear Info', url: 'https://www.epa.gov/radtown/nuclear-power-plants', tier: 'start', readingTime: 'Reference site' },
+                            { name: 'World Nuclear Association', url: 'https://www.world-nuclear.org', tier: 'deeper', readingTime: 'Reference site' }
                         ]
                     }
                 ];
@@ -1678,7 +1878,9 @@
                 const components = [
                     { 
                         key: 'intro', 
-                        label: 'Nuclear Power Basics', 
+                        label: 'Nuclear Power Basics',
+                        guidingQuestion: 'Before you take notes, think about this: You already know how a gas stove burns fuel to release heat. How do you think a nuclear plant is similar — and how is it different?',
+                        placeholder: 'Nuclear energy works by...\nOne key difference from coal or gas is...\nThree reasons people support nuclear power: (1) (2) (3)\nThree reasons people oppose it: (1) (2) (3)',
                         bullets: [
                             'What is nuclear fission? (How does splitting atoms create energy?)',
                             'Most natural uranium is U-238, which can\'t sustain fission. Power plants need <strong>enriched uranium</strong> with higher U-235 (the fissile isotope). This is why uranium must be enriched from ~0.7% U-235 to 3-5% U-235. <a href="https://www.nrc.gov/materials/fuel-cycle-fac/ur-enrichment.html" target="_blank" rel="noopener noreferrer" class="source-link">Source: NRC</a>',
@@ -1691,6 +1893,8 @@
                     { 
                         key: 'plant', 
                         label: this.state.selectedPlant ? `About ${this.state.selectedPlant}` : 'About Your Plant',
+                        guidingQuestion: 'Before you take notes, ask yourself: What specific decisions — political, economic, or safety-related — kept this plant open when others, like Indian Point, closed?',
+                        placeholder: 'This plant is located in... It was built in...\nThe type of reactor it uses is...\nA key moment in its history was...\nCompared to Indian Point (which closed in 2021), this plant stayed open because...',
                         bullets: this.state.selectedPlant ? [
                             'When was it built?',
                             'Where exactly is it located?',
@@ -1703,6 +1907,8 @@
                     { 
                         key: 'operations', 
                         label: 'How It Works',
+                        guidingQuestion: 'Before you take notes, ask yourself: What would actually have to go wrong — and in what sequence — for a serious problem to occur at this plant?',
+                        placeholder: 'The reactor type used here is... This matters because...\nThis plant generates approximately... megawatts, which is enough electricity for...\nIf something went wrong, the safety systems would...',
                         bullets: [
                             'What type of reactor does it use?',
                             'How much electricity does it produce?',
@@ -1714,6 +1920,8 @@
                     { 
                         key: 'environmental', 
                         label: 'Environment & Health',
+                        guidingQuestion: 'Before you take notes, ask yourself: What\'s the worst-case environmental scenario for this plant — and how does that compare to the everyday environmental impact of a coal plant?',
+                        placeholder: 'The main environmental concern at this plant is...\nNuclear waste is stored by... because no permanent facility exists yet.\nCompared to coal (~820g CO₂/kWh), this plant produces about...g CO₂/kWh.\nA safety incident at this plant was... / No major incidents have occurred because...',
                         bullets: [
                             'How does it affect local water? (temperature, usage)',
                             'Where does the nuclear waste go? How is it stored? High-level waste is currently stored on-site in dry cask storage because deep geological repositories (like Yucca Mountain) remain politically stalled. <a href="https://www.nrc.gov/waste/spent-fuel-storage.html" target="_blank" rel="noopener noreferrer" class="source-link">Source: NRC</a>',
@@ -1726,6 +1934,8 @@
                     { 
                         key: 'economic', 
                         label: 'Money & Community',
+                        guidingQuestion: 'Before you take notes, ask yourself: Who in the local community depends on this plant staying open — and who might prefer it closed? How do their interests conflict?',
+                        placeholder: 'This plant employs approximately... people and contributes $... to the local economy.\nIt costs approximately $... per megawatt-hour to operate (note: this is for the EXISTING plant, not a new one).\nThe local community\'s view is... because...\nIf the plant closed, the biggest impacts would be...',
                         bullets: [
                             'How many jobs does it provide?',
                             'How much does it cost to run? (You\'ll see different cost numbers—check if they mean running an EXISTING plant like yours OR building a brand NEW one from scratch. That\'s why people disagree!)',
@@ -1737,6 +1947,8 @@
                     { 
                         key: 'future', 
                         label: 'Future Plans',
+                        guidingQuestion: 'Before you take notes, ask yourself: NY and NJ have ambitious clean energy goals. Does nuclear power help reach those goals — or is it an obstacle to them?',
+                        placeholder: 'This plant\'s license expires in... Plans for renewal/closure: ...\nNY/NJ energy policy affects this plant because...\nIf this plant closed, the electricity would need to come from...\nNew nuclear technologies like SMRs could/could not replace it because...',
                         bullets: [
                             'Is it staying open or closing? When does its license expire?',
                             'Are there plans for new nuclear plants in NY/NJ? Small Modular Reactors (SMRs) are factory-built, smaller reactors designed to address high capital costs of traditional large reactors. <a href="https://www.energy.gov/ne/advanced-small-modular-reactors-smrs" target="_blank" rel="noopener noreferrer" class="source-link">Source: DOE</a>',
@@ -1747,22 +1959,59 @@
                     }
                 ];
 
+                // Tier dot tooltip helper
+                const tierDot = (tier) => {
+                    if (!tier) return '';
+                    const tips = {
+                        start: 'Good starting point — shorter or written for non-experts',
+                        deeper: 'More detail or technical depth',
+                        video: 'Video — watch instead of read'
+                    };
+                    return `<span class="tier-dot ${tier}" data-tip="${tips[tier] || ''}" aria-hidden="true"></span>`;
+                };
+
+                // Separate the "Start Here" category from the rest
+                const startHereCat = this.researchResources.find(c => c.startHere);
+                const otherCats = this.researchResources.filter(c => !c.startHere);
+
                 return `
                     <div class="section-content">
                         <div class="info-box info-box-blue">
-                            <strong>How to Research Well:</strong> This is a real debate where smart people disagree. 
-                            Your job isn't to prove you're 100% right. Rather, you want to prove that you've researched the topic thoroughly and can 
-                            back up your arguments. Use different types of sources: government data for facts, 
-                            news for current events, and research studies for deeper analysis.
+                            <strong>How to Research Well:</strong> This is a real debate where smart people disagree.
+                            Your job isn't to prove you're 100% right — you want to show you've researched thoroughly and can back up your arguments.
+                            Use different source types: government data for facts, news for current events, research studies for deeper analysis.
                         </div>
 
                         <div class="info-box info-box-yellow">
-                            <strong>Can't Access Databases from Home?</strong> Use the credentials <a href="https://docs.google.com/document/d/1oGCj_JLUUAQV9jOgOQpNmrZlYmntAysr68tuXCWGCy4/view" target="_blank" rel="noopener noreferrer" class="source-link">available here!</a>
+                            <strong>Can't access databases from home?</strong> Use the credentials <a href="https://docs.google.com/document/d/1oGCj_JLUUAQV9jOgOQpNmrZlYmntAysr68tuXCWGCy4/view" target="_blank" rel="noopener noreferrer" class="source-link">available here.</a>
                         </div>
 
-                        <h3 class="text-white mb-2" style="font-size: 1.3rem; font-weight: 700;">Where to Look</h3>
+                        ${startHereCat ? `
+                        <div class="quick-start-panel">
+                            <h4>Build your foundation first &mdash; ~20 minutes</h4>
+                            <p class="quick-start-intro">Work through these in order before you take notes. Each is short and written for non-experts.</p>
+                            <ul class="quick-start-steps">
+                                ${startHereCat.items.map((item, i) => {
+                                    const typeLabel = item.tier === 'video' ? 'Video' : 'Article';
+                                    return `
+                                    <li class="quick-start-step">
+                                        <span class="quick-start-num">${i + 1}</span>
+                                        <a href="${item.url}" target="_blank" rel="noopener noreferrer" class="quick-start-link">${item.name}</a>
+                                    </li>`;
+                                }).join('')}
+                            </ul>
+                        </div>
+                        ` : ''}
+
+                        <h3 class="text-white mb-2" style="font-size: 1.05rem; font-weight: 700; margin-bottom: 0.5rem;">Full Resource List</h3>
+                        <div class="tier-legend">
+                            <span class="tier-legend-item"><span class="tier-dot start" style="position:static;" aria-hidden="true"></span>Good starting point</span>
+                            <span class="tier-legend-item"><span class="tier-dot deeper" style="position:static;" aria-hidden="true"></span>More detail</span>
+                            <span class="tier-legend-item"><span class="tier-dot video" style="position:static;" aria-hidden="true"></span>Video</span>
+                            <span>Hover the dot for a description.</span>
+                        </div>
                         <div class="resource-grid">
-                            ${this.researchResources.map(category => `
+                            ${otherCats.map(category => `
                                 <div class="resource-card">
                                     <h4>${category.category}</h4>
                                     <span class="resource-authority">${category.authorityLevel}</span>
@@ -1771,9 +2020,12 @@
                                         ${category.items.map(item => `
                                             <li class="resource-item">
                                                 <span class="resource-bullet">•</span>
-                                                <a href="${item.url}" target="_blank" rel="noopener noreferrer" class="resource-link">
-                                                    ${item.name} ${icons.ExternalLink}
-                                                </a>
+                                                <span class="res-link-wrap">
+                                                    <a href="${item.url}" target="_blank" rel="noopener noreferrer" class="resource-link">
+                                                        ${item.name} ${icons.ExternalLink}
+                                                    </a>
+                                                    ${tierDot(item.tier)}
+                                                </span>
                                             </li>
                                         `).join('')}
                                     </ul>
@@ -1784,8 +2036,15 @@
                         ${components.map((comp) => `
                             <div class="mt-4">
                                 <label for="research-${comp.key}">${comp.label}</label>
+                                ${comp.guidingQuestion ? `
+                                ${comp.guidingQuestion ? `
+                                    <div class="guiding-q-box">
+                                        <div class="guiding-q-label">Before you take notes</div>
+                                        <div class="guiding-q-text">${comp.guidingQuestion}</div>
+                                    </div>
+                                ` : ''}
+                                ` : ''}
                                 <div class="info-box info-box-green" style="margin-bottom: 1rem;">
-                                    <strong>Find out:</strong>
                                     <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
                                         ${comp.bullets.map(bullet => `<li style="margin-bottom: 0.25rem;">${bullet}</li>`).join('')}
                                     </ul>
@@ -1793,7 +2052,7 @@
                                 <textarea 
                                     id="research-${comp.key}"
                                     data-bind="researchNotes.${comp.key}" 
-                                    placeholder="Write your research notes here..."
+                                    placeholder="${comp.placeholder || 'Write your research notes here...'}"
                                     aria-label="Research notes for ${comp.label}"
                                 >${this.escapeHtml(this.state.researchNotes[comp.key])}</textarea>
                             </div>
@@ -1840,6 +2099,20 @@
             renderArguments() {
                 if (!this.state.expandedSections.arguments) return '';
                 
+                const proStarters = [
+                    'Nuclear power is essential for NY/NJ to reach its clean energy goals because, unlike solar or wind, it produces reliable electricity 24 hours a day regardless of weather.',
+                    '[Plant name] generates approximately [X] MW of electricity and prevents roughly [X] tons of CO₂ per year — making it one of the most effective tools for reducing carbon emissions in the region.',
+                    'Nuclear power has one of the lowest death rates of any energy source: 0.07 deaths per terawatt-hour, comparable to wind and solar, and far lower than natural gas or coal.'
+                ];
+                const conStarters = [
+                    'The problem of long-term nuclear waste storage remains unsolved — high-level radioactive waste must be safely contained for up to 10,000 years, and the U.S. still has no permanent storage facility.',
+                    'The construction of new nuclear plants is prohibitively expensive and slow: Georgia\'s Vogtle Units 3 and 4 took over a decade to build and cost more than $35 billion — far exceeding initial estimates.',
+                    'The history of nuclear accidents — including Three Mile Island (1979), Chernobyl (1986), and Fukushima (2011) — demonstrates that even with strong safety protocols, catastrophic failures remain possible.'
+                ];
+                const starters = this.state.position === 'con' ? conStarters : proStarters;
+                const starterSide = this.state.position === 'con' ? 'con' : 'pro';
+                const starterLabel = this.state.position === 'con' ? 'Anti-Nuclear Starting Points' : 'Pro-Nuclear Starting Points';
+
                 return `
                     <div class="section-content">
                         <div class="info-box info-box-green">
@@ -1849,6 +2122,16 @@
                             <strong>(3)</strong> Explanation of why your evidence proves your point, 
                             <strong>(4)</strong> How sure you are (don't oversell!), and
                             <strong>(5)</strong> What the other side might say back.
+                        </div>
+
+                        <div class="starter-panel">
+                        <div class="starter-panel">
+                            <div class="starter-panel-head">Need a starting point?</div>
+                            <p class="starter-panel-sub">These claim starters are grounded in real evidence. Copy one into an argument card below and replace the bracketed parts with your plant's specifics.</p>
+                            <div class="starter-side-label ${starterSide}">${starterLabel}</div>
+                            ${starters.map(s => `
+                                <div class="starter-claim">${s}<span class="starter-hint">Replace bracketed text with your plant's data.</span></div>
+                            `).join('')}
                         </div>
 
                         <h3 class="text-yellow mb-3" style="font-size: 1.3rem; font-weight: 700;">Your Team's Arguments</h3>
@@ -1885,7 +2168,7 @@
                                 <label class="inline" for="arg-${index}-data" style="margin-top: 1rem;">2. Evidence (facts, stats, expert quotes)</label>
                                 <textarea 
                                     id="arg-${index}-data"
-                                    placeholder="What proves your point? Be specific with numbers and sources."
+                                    placeholder="According to [source], ... | Key stat: [number] | An expert noted that..."
                                     data-bind="arguments.${index}.data"
                                     class="compact"
                                 >${this.escapeHtml(arg.data || '')}</textarea>
@@ -1893,7 +2176,7 @@
                                 <label class="inline" for="arg-${index}-warrant" style="margin-top: 1rem;">3. Why Does This Evidence Prove Your Point?</label>
                                 <textarea 
                                     id="arg-${index}-warrant"
-                                    placeholder="Connect the dots—explain the logic."
+                                    placeholder="This evidence proves my point because... | In other words, if [evidence] is true, then it follows that... | The connection is..."
                                     data-bind="arguments.${index}.warrant"
                                     class="compact"
                                 >${this.escapeHtml(arg.warrant || '')}</textarea>
@@ -1910,7 +2193,7 @@
                                 <label class="inline" for="arg-${index}-rebuttal" style="margin-top: 1rem;">5. What Might They Say Back?</label>
                                 <textarea 
                                     id="arg-${index}-rebuttal"
-                                    placeholder="Think ahead—what will the other team argue?"
+                                    placeholder="The other side will probably say... | They might point out that... | My response to that would be..."
                                     data-bind="arguments.${index}.rebuttal"
                                     class="compact"
                                 >${this.escapeHtml(arg.rebuttal || '')}</textarea>
@@ -2626,7 +2909,7 @@
                                         id="question-${index}-purpose"
                                         type="text" 
                                         value="${this.escapeHtml(q.purpose || '')}" 
-                                        placeholder="What are you trying to get them to admit or mess up?"
+                                        placeholder="I want them to admit... | This question exposes a weakness because... | If they can't answer, it shows..."
                                         data-bind="questions.${index}.purpose"
                                     />
                                 </div>
